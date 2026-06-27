@@ -10,20 +10,31 @@ import { FadeUp } from "@/components/ui/FadeUp";
 import { projects } from "@/lib/data";
 
 export function Projects() {
+  const [featuredProject, ...otherProjects] = projects;
+
   return (
-    <section id="projects" className="relative py-[76px] border-t border-white/[0.07]"
-      style={{ background: "linear-gradient(to bottom, #080f20 0%, #020617 100%)" }}>
+    <section
+      id="projects"
+      className="relative py-[76px] border-t border-white/[0.07]"
+      style={{ background: "var(--section-alt-bg)" }}
+    >
       <GlowBackground variant="section" />
       <Container className="relative z-10">
         <SectionHeader
           eyebrow="Featured Projects"
           title="Things I've built"
-          subtitle="Production-grade projects spanning e-commerce, fitness, education, and more."
+          subtitle="Production-grade projects spanning recruitment workflows, e-commerce, fitness, education, and backend APIs."
         />
 
+        {featuredProject && (
+          <div className="mb-[18px]">
+            <ProjectCard {...featuredProject} index={0} isFeatured />
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[22px]">
-          {projects.map((project, i) => (
-            <ProjectCard key={project.title} {...project} index={i} />
+          {otherProjects.map((project, i) => (
+            <ProjectCard key={project.title} {...project} index={i + 1} />
           ))}
         </div>
 

@@ -32,10 +32,11 @@ export function SkillCard({ label, color, icon, tags, delay = 0 }: SkillCardProp
           {/* Header */}
           <div className="flex items-center gap-[10px] mb-[18px]">
             <div
-              className="w-[34px] h-[34px] rounded-[9px] flex items-center justify-center text-[15px]"
+              className="w-[34px] h-[34px] rounded-[9px] flex items-center justify-center text-[11px] font-bold"
               style={{
                 background: `${color}1a`,
                 border: `1px solid ${color}26`,
+                color,
               }}
             >
               {icon}

@@ -15,7 +15,14 @@ export function BadgeGroup({ tags, variant = "default", className, size = "md" }
   return (
     <div className={cn("flex flex-wrap gap-[6px]", className)}>
       {tags.map((tag) => (
-        <Badge key={tag} variant={variant} className={cn(size === "sm" && "text-[10px] px-[8px] py-[2px]")}>
+        <Badge
+          key={tag}
+          variant={variant}
+          className={cn(
+            "font-mono tracking-[0.01em]",
+            size === "sm" && "text-[10px] px-[8px] py-[2px]"
+          )}
+        >
           {tag}
         </Badge>
       ))}

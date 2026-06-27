@@ -7,15 +7,20 @@ import { GlowBackground } from "@/components/ui/glow-background";
 import { skills } from "@/lib/data";
 
 const iconMap: Record<string, string> = {
-  Frontend: "⚛",
-  Backend: "🖥",
-  "Tools & Workflow": "⚙",
+  Frontend: "FE",
+  Backend: "BE",
+  "Tools & Workflow": "TW",
 };
 
 export function Skills() {
   return (
-    <section id="skills" className="relative py-[76px] border-t border-white/[0.07]"
-      style={{ background: "linear-gradient(to bottom, #080f20 0%, #020617 100%)" }}>
+    <section
+      id="skills"
+      className="relative py-[76px] border-t border-white/[0.07]"
+      style={{
+        background: "var(--section-alt-bg)",
+      }}
+    >
       <GlowBackground variant="section" />
       <Container className="relative z-10">
         <SectionHeader

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Sun, Moon, Download, Code2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
@@ -13,7 +13,6 @@ import {
   SheetHeader,
   SheetTitle,
 } from "@/components/ui/sheet";
-import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/data";
 import { Menu } from "lucide-react";
@@ -70,11 +69,17 @@ export function Navbar() {
       transition={{ duration: 0.45, ease: "easeOut" }}
       className="sticky top-0 z-50 transition-all duration-300"
       style={{
-        backgroundColor: scrolled ? "rgba(2,6,23,0.88)" : "transparent",
+        backgroundColor: scrolled
+          ? dark
+            ? "rgba(2,6,23,0.88)"
+            : "rgba(248,250,252,0.9)"
+          : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
         borderBottom: scrolled
-          ? "1px solid rgba(255,255,255,0.07)"
+          ? dark
+            ? "1px solid rgba(255,255,255,0.07)"
+            : "1px solid rgba(15,23,42,0.10)"
           : "1px solid transparent",
       }}
     >
@@ -85,7 +90,7 @@ export function Navbar() {
             <div className="w-[30px] h-[30px] rounded-[8px] bg-[rgba(56,189,248,0.1)] border border-[rgba(56,189,248,0.2)] flex items-center justify-center">
               <Code2 size={14} className="text-[#38BDF8]" />
             </div>
-            <span className="font-extrabold text-[15px] text-[#F8FAFC] tracking-[-0.02em]">
+            <span className="font-heading font-extrabold text-[15px] text-[#F8FAFC] tracking-[-0.02em]">
               {siteConfig.name.split(" ")[0]}
               <em className="text-[#38BDF8] not-italic">.</em>
             </span>
@@ -139,7 +144,7 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] p-0">
                 <SheetHeader className="px-6 pt-8 pb-4">
-                  <SheetTitle className="text-[16px] font-extrabold tracking-[-0.02em]">
+                  <SheetTitle className="font-heading text-[16px] font-extrabold tracking-[-0.02em]">
                     {siteConfig.name}
                     <em className="text-[#38BDF8] not-italic">.</em>
                   </SheetTitle>
@@ -157,7 +162,7 @@ export function Navbar() {
                       className="flex items-center justify-between py-[13px] border-b border-white/[0.05] text-[#94A3B8] text-[14px] font-medium transition-colors duration-150 hover:text-[#F8FAFC] no-underline last:border-b-0"
                     >
                       {link.label}
-                      <span className="text-[12px] opacity-40">→</span>
+                      <span className="text-[12px] opacity-40">-&gt;</span>
                     </a>
                   ))}
                 </nav>

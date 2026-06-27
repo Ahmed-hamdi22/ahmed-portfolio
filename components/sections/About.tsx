@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Mail, Phone, Code2, Layers, Zap } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
 
 import { SectionHeader } from "@/components/ui/section-header";
 import { Container } from "@/components/ui/container";
@@ -18,7 +18,7 @@ const highlights = [
   {
     Icon: Layers,
     label: "Full Stack",
-    desc: "Frontend-focused with backend proficiency",
+    desc: "Frontend and backend development across complete application workflows",
   },
   {
     Icon: Zap,
@@ -33,15 +33,6 @@ const contactInfo = [
   { Icon: Phone, text: siteConfig.phone },
 ];
 
-const profileRows = [
-  { label: "Status", value: "Open to Work", isStatus: true },
-  { label: "Focus", value: "Frontend · Full Stack" },
-  { label: "Education", value: "Route Academy 2024" },
-  { label: "Degree", value: "BBA — Zagazig Univ." },
-  { label: "Experience at", value: "Elevate Tech · DEPI" },
-  { label: "Location type", value: "Remote / Onsite / Hybrid" },
-];
-
 export function About() {
   return (
     <section
@@ -51,26 +42,26 @@ export function About() {
       <Container>
         <SectionHeader
           eyebrow="About Me"
-          title="Crafting digital experiences with purpose"
+          title="Building complete web applications"
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-12 items-start">
           {/* Left: bio */}
           <FadeUp delay={0.1}>
             <p className="text-[15px] text-[#CBD5E1] leading-[1.85] mb-5">
-              Frontend-focused{" "}
+              I&apos;m Ahmed Hamdi, a{" "}
               <strong className="text-[#F8FAFC] font-semibold">
-                Full Stack Engineer
+                Full Stack Developer
               </strong>{" "}
-              with hands-on experience building scalable, production-ready
-              applications using{" "}
-              <strong className="text-[#F8FAFC] font-semibold">
-                React.js, Next.js, TypeScript
-              </strong>
-              , Node.js, Express.js, and MongoDB.
+              building frontend interfaces, backend APIs, authentication
+              flows, and database-driven features with React, Next.js,
+              TypeScript, Node.js, Express.js, and MongoDB.
             </p>
             <p className="text-[15px] text-[#CBD5E1] leading-[1.85] mb-6">
-              {siteConfig.about.split(".").slice(1).join(".").trim()}
+              I create responsive dashboards and full-stack application
+              workflows with clean architecture, reusable forms, validation,
+              loading states, safe API error handling, performance, and
+              long-term maintainability in mind.
             </p>
 
             {/* Contact pills */}

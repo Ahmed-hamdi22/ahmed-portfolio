@@ -19,12 +19,12 @@ export function GlowBackground({ variant = "section", color = "blue", className 
   if (variant === "hero") {
     return (
       <div className={cn("absolute inset-0 pointer-events-none z-0", className)}>
-        {/* Primary radial — top center */}
+        {/* Primary radial - top center */}
         <div
           className="absolute inset-0"
           style={{
             background: `radial-gradient(ellipse 80% 60% at 50% -10%, ${c}0.13) 0%, transparent 70%),
-              radial-gradient(ellipse 60% 50% at 15% 30%, rgba(129,140,248,0.07) 0%, transparent 60%),
+              radial-gradient(ellipse 60% 50% at 15% 30%, rgba(34,211,238,0.06) 0%, transparent 60%),
               radial-gradient(ellipse 50% 40% at 85% 20%, ${c}0.06) 0%, transparent 60%)`,
           }}
         />
@@ -32,7 +32,7 @@ export function GlowBackground({ variant = "section", color = "blue", className 
         <div
           className="absolute inset-0"
           style={{
-            backgroundImage: `linear-gradient(${c}0.025) 1px, transparent 1px), linear-gradient(90deg, ${c}0.025) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(${c}0.02) 1px, transparent 1px), linear-gradient(90deg, ${c}0.02) 1px, transparent 1px)`,
             backgroundSize: "56px 56px",
             maskImage: "radial-gradient(ellipse 70% 80% at 50% 40%, black 20%, transparent 100%)",
           }}
@@ -68,7 +68,7 @@ export function GlowBackground({ variant = "section", color = "blue", className 
       <div
         className={cn("absolute inset-0 pointer-events-none", className)}
         style={{
-          background: `radial-gradient(ellipse at 25% 65%, ${c}0.18) 0%, transparent 55%), radial-gradient(ellipse at 75% 25%, ${c}0.08) 0%, transparent 50%)`,
+          background: `radial-gradient(ellipse at 25% 65%, ${c}0.16) 0%, transparent 56%), radial-gradient(ellipse at 75% 25%, ${c}0.07) 0%, transparent 50%)`,
         }}
       />
     );

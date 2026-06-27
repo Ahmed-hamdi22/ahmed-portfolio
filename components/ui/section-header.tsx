@@ -34,7 +34,7 @@ export function SectionHeader({
       </div>
 
       {/* Title */}
-      <h2 className="text-[clamp(24px,3.8vw,36px)] font-extrabold tracking-[-0.03em] text-[#F8FAFC] leading-[1.15] mb-2">
+      <h2 className="text-[clamp(24px,3.8vw,36px)] font-extrabold tracking-[-0.02em] text-[#F8FAFC] leading-[1.15] mb-2">
         {title}
       </h2>
 

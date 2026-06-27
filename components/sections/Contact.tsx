@@ -78,7 +78,7 @@ export function Contact() {
               <CardContent className="p-[30px] flex flex-col h-full">
                 <h3 className="text-[17px] font-bold text-[#F8FAFC] tracking-[-0.025em] mb-2">Open to opportunities</h3>
                 <p className="text-[13px] text-[#94A3B8] leading-[1.75] mb-6">
-                  Based in Cairo, Egypt — available for remote roles globally, hybrid, or onsite.
+                  Based in Cairo, Egypt - available for remote roles globally, hybrid, or onsite.
                 </p>
 
                 {/* Availability grid */}

@@ -11,11 +11,11 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-[#38BDF8] text-[#020617] hover:-translate-y-[2px] hover:shadow-[0_0_36px_rgba(56,189,248,0.32)] shadow-[0_0_24px_rgba(56,189,248,0.2)]",
+          "bg-[#38BDF8] text-[#020617] hover:-translate-y-[2px] hover:shadow-[0_0_36px_rgba(56,189,248,0.28)] shadow-[0_0_24px_rgba(56,189,248,0.18)]",
         ghost:
           "bg-white/[0.04] text-[#CBD5E1] border border-white/[0.12] hover:text-[#F8FAFC] hover:border-white/[0.18] hover:-translate-y-[1px]",
         outline:
-          "border border-white/[0.07] bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/[0.14] hover:bg-white/[0.03]",
+          "border border-white/[0.08] bg-transparent text-[#94A3B8] hover:text-[#F8FAFC] hover:border-white/[0.16] hover:bg-white/[0.035]",
         accent:
           "border border-[rgba(56,189,248,0.3)] bg-[rgba(56,189,248,0.06)] text-[#38BDF8] hover:bg-[rgba(56,189,248,0.12)] hover:border-[rgba(56,189,248,0.5)]",
         icon: "border border-white/[0.1] bg-white/[0.04] text-[#94A3B8] hover:text-[#38BDF8] hover:border-[rgba(56,189,248,0.35)] rounded-[9px]",
