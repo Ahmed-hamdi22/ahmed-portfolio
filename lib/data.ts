@@ -128,7 +128,7 @@ export const projects = [
       "Zod",
     ],
     github: "https://github.com/Ahmed-hamdi22/e-commerce-flower-shop",
-    demo: "https://e-commerce-flower-shop-kqil-j2esixyri-ahmedhamdi22s-projects.vercel.app/en",
+    demo: "https://e-commerce-flower-shop-ulqj.vercel.app/en",
     accent: "#38BDF8",
     color: "blue" as ProjectColor,
     type: "Full Stack Project",
