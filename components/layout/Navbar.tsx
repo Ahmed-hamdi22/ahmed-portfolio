@@ -72,14 +72,14 @@ export function Navbar() {
         backgroundColor: scrolled
           ? dark
             ? "rgba(2,6,23,0.88)"
-            : "rgba(248,250,252,0.9)"
+            : "rgba(248,250,252,0.92)"
           : "transparent",
         backdropFilter: scrolled ? "blur(20px)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(20px)" : "none",
         borderBottom: scrolled
           ? dark
             ? "1px solid rgba(255,255,255,0.07)"
-            : "1px solid rgba(15,23,42,0.10)"
+            : "1px solid #E2E8F0"
           : "1px solid transparent",
       }}
     >
@@ -90,7 +90,7 @@ export function Navbar() {
             <div className="w-[30px] h-[30px] rounded-[8px] bg-[rgba(56,189,248,0.1)] border border-[rgba(56,189,248,0.2)] flex items-center justify-center">
               <Code2 size={14} className="text-[#38BDF8]" />
             </div>
-            <span className="font-heading font-extrabold text-[15px] text-[#F8FAFC] tracking-[-0.02em]">
+            <span className="font-heading font-extrabold text-[15px] text-slate-900 dark:text-[#F8FAFC] tracking-[-0.02em]">
               {siteConfig.name.split(" ")[0]}
               <em className="text-[#38BDF8] not-italic">.</em>
             </span>
@@ -102,7 +102,7 @@ export function Navbar() {
               <a
                 key={link.href}
                 href={link.href}
-                className="text-[#94A3B8] text-[13px] font-medium px-[11px] py-[5px] rounded-[7px] transition-all duration-180 hover:text-[#F8FAFC] hover:bg-white/[0.04] no-underline"
+                className="font-sans text-slate-600 dark:text-[#94A3B8] text-[13px] font-medium px-[11px] py-[5px] rounded-[7px] transition-all duration-180 hover:text-slate-900 dark:hover:text-[#F8FAFC] hover:bg-slate-100 dark:hover:bg-white/[0.04] no-underline"
               >
                 {link.label}
               </a>
@@ -116,18 +116,9 @@ export function Navbar() {
               size="icon"
               onClick={toggleTheme}
               aria-label="Toggle theme"
-              className="w-[34px] h-[34px] rounded-lg flex items-center justify-center border border-black/10 dark:border-white/10 bg-slate-100 dark:bg-white/[0.04] text-slate-500 dark:text-[#94A3B8] cursor-pointer transition-all duration-200 hover:text-[#38BDF8] hover:border-sky-400/35"
+              className="w-[34px] h-[34px] rounded-lg flex items-center justify-center border border-slate-200 dark:border-white/10 bg-white dark:bg-white/[0.04] text-slate-600 dark:text-[#94A3B8] cursor-pointer transition-all duration-200 hover:text-[#0284C7] dark:hover:text-[#38BDF8] hover:border-sky-300 dark:hover:border-sky-400/35 shadow-xs dark:shadow-none"
             >
               {dark ? <Sun size={15} /> : <Moon size={15} />}
-            </Button>
-
-            <Button
-              variant="accent"
-              size="sm"
-              className="hidden md:inline-flex text-[12px] font-bold"
-              asChild
-            >
-              <a href="#contact">Hire Me</a>
             </Button>
 
             {/* Mobile sheet */}
@@ -144,7 +135,7 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[300px] p-0">
                 <SheetHeader className="px-6 pt-8 pb-4">
-                  <SheetTitle className="font-heading text-[16px] font-extrabold tracking-[-0.02em]">
+                  <SheetTitle className="font-heading text-[16px] font-extrabold tracking-tight">
                     {siteConfig.name}
                     <em className="text-[#38BDF8] not-italic">.</em>
                   </SheetTitle>
@@ -159,7 +150,7 @@ export function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setOpen(false)}
-                      className="flex items-center justify-between py-[13px] border-b border-white/[0.05] text-[#94A3B8] text-[14px] font-medium transition-colors duration-150 hover:text-[#F8FAFC] no-underline last:border-b-0"
+                      className="font-sans flex items-center justify-between py-[13px] border-b border-slate-100 dark:border-white/[0.05] text-slate-600 dark:text-[#94A3B8] text-[14px] font-medium transition-colors duration-150 hover:text-slate-900 dark:hover:text-[#F8FAFC] no-underline last:border-b-0"
                     >
                       {link.label}
                       <span className="text-[12px] opacity-40">-&gt;</span>
@@ -170,14 +161,9 @@ export function Navbar() {
                 <Separator />
 
                 <div className="px-6 py-5 flex flex-col gap-3">
-                  <Button className="w-full justify-center font-bold" asChild>
-                    <a href="#contact" onClick={() => setOpen(false)}>
-                      Hire Me
-                    </a>
-                  </Button>
                   <Button
                     variant="ghost"
-                    className="w-full justify-center"
+                    className="w-full justify-center font-sans font-medium"
                     asChild
                   >
                     <a href="/cv.pdf" download onClick={() => setOpen(false)}>
@@ -187,9 +173,9 @@ export function Navbar() {
                   <SocialLinks className="justify-center mt-1" size="sm" />
 
                   {/* Status */}
-                  <div className="flex items-center gap-2 mt-1 px-3 py-2.5 rounded-[9px] bg-[rgba(52,211,153,0.05)] border border-[rgba(52,211,153,0.14)]">
-                    <span className="w-[7px] h-[7px] rounded-full bg-[#34D399] shadow-[0_0_6px_#34D399] shrink-0" />
-                    <span className="text-[12px] text-[#34D399] font-semibold">
+                  <div className="flex items-center gap-2 mt-1 px-3 py-2.5 rounded-[9px] bg-emerald-50 dark:bg-[rgba(52,211,153,0.05)] border border-emerald-200 dark:border-[rgba(52,211,153,0.14)]">
+                    <span className="w-[7px] h-[7px] rounded-full bg-[#059669] dark:bg-[#34D399] shadow-[0_0_6px_#059669] dark:shadow-[0_0_6px_#34D399] shrink-0" />
+                    <span className="text-[12px] text-[#059669] dark:text-[#34D399] font-sans font-semibold">
                       Available for work
                     </span>
                   </div>

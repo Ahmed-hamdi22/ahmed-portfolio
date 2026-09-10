@@ -7,12 +7,13 @@ import { experience } from "@/lib/data";
 
 export function Experience() {
   return (
-    <section id="experience" className="relative z-10 py-[76px] border-t border-white/[0.07]">
+    <section id="experience" className="relative z-10 py-14 sm:py-16 border-t border-slate-200 dark:border-white/[0.07]">
       <Container>
         <SectionHeader
           eyebrow="Experience"
           title="Where I've worked"
-          subtitle="Professional roles and intensive training programs that shaped my engineering foundation."
+          subtitle="Verified engineering roles and freelance full-stack projects."
+          className="mb-8 sm:mb-10"
         />
 
         {/* Timeline */}

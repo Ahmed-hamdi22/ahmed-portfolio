@@ -5,7 +5,6 @@ import { Github, ArrowUpRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BackendApiPreview } from "@/components/ui/backend-api-preview";
 import { FadeUp } from "@/components/ui/FadeUp";
 import { ProjectImageCarousel } from "@/components/ui/project-image-carousel";
 import { cn } from "@/lib/utils";
@@ -16,8 +15,8 @@ interface ProjectCardProps {
   title: string;
   description: string;
   tags: string[];
-  github: string;
-  demo: string;
+  github?: string;
+  demo?: string;
   accent: string;
   color: ProjectColor;
   icon?: string;
@@ -45,70 +44,64 @@ export function ProjectCard({
   demo,
   accent,
   color,
-  images,
+  images = [],
   type,
   index = 0,
   isFeatured = false,
 }: ProjectCardProps) {
-  const projectLabel = isFeatured ? "Featured Full Stack Project" : type;
-  const hasImages = Boolean(images?.length);
-  const isBackendApiPreview = type === "Backend API" && !hasImages;
+  const projectLabel = isFeatured ? "" : type;
+  const hasGithub = Boolean(github && github.trim() !== "");
+  const hasDemo = Boolean(demo && demo.trim() !== "");
 
   return (
-    <FadeUp delay={index * 0.1}>
+    <FadeUp delay={index * 0.08}>
       <motion.div
-        whileHover={{ y: -5 }}
+        whileHover={{ y: -4 }}
         transition={{ type: "spring", stiffness: 280, damping: 24 }}
+        className="h-full"
       >
         <Card
           className={cn(
-            "overflow-hidden border-white/[0.07] rounded-[20px] bg-[#0a1628]",
-            "shadow-[0_4px_24px_rgba(0,0,0,0.2)] transition-all duration-300",
-            isFeatured
-              ? "md:grid md:grid-cols-[0.52fr_1fr] border-[#38BDF8]/25"
-              : "flex flex-col"
+            "h-full overflow-hidden border-slate-200 dark:border-white/[0.07] rounded-[18px] bg-white dark:bg-[#0a1628]",
+            "shadow-sm dark:shadow-[0_4px_24px_rgba(0,0,0,0.18)] transition-all duration-250 flex flex-col",
+            isFeatured &&
+              "md:grid md:grid-cols-[0.46fr_1fr] border-[#0891B2]/30 dark:border-[#38BDF8]/25",
           )}
           style={{
             ["--hover-border" as string]: `${accent}30`,
           }}
           onMouseEnter={(e) => {
-            (e.currentTarget as HTMLElement).style.borderColor = `${accent}30`;
-            (e.currentTarget as HTMLElement).style.boxShadow =
-              "0 24px 58px rgba(0,0,0,0.34), 0 0 0 1px rgba(56,189,248,0.08)";
+            const isDark = document.documentElement.classList.contains("dark");
+            (e.currentTarget as HTMLElement).style.borderColor = `${accent}50`;
+            (e.currentTarget as HTMLElement).style.boxShadow = isDark
+              ? "0 18px 48px rgba(0,0,0,0.32), 0 0 0 1px rgba(56,189,248,0.1)"
+              : "0 12px 32px rgba(15,23,42,0.08), 0 0 0 1px rgba(14,165,233,0.15)";
           }}
           onMouseLeave={(e) => {
-            (e.currentTarget as HTMLElement).style.borderColor =
-              isFeatured ? "rgba(56,189,248,0.25)" : "rgba(255,255,255,0.07)";
-            (e.currentTarget as HTMLElement).style.boxShadow =
-              "0 4px 24px rgba(0,0,0,0.2)";
+            const isDark = document.documentElement.classList.contains("dark");
+            (e.currentTarget as HTMLElement).style.borderColor = isFeatured
+              ? (isDark ? "rgba(56,189,248,0.25)" : "rgba(8,145,178,0.3)")
+              : (isDark ? "rgba(255,255,255,0.07)" : "#E2E8F0");
+            (e.currentTarget as HTMLElement).style.boxShadow = isDark
+              ? "0 4px 24px rgba(0,0,0,0.18)"
+              : "0 1px 3px rgba(0,0,0,0.05)";
           }}
         >
-          {/* Visual panel */}
+          {/* Visual panel (compact ~165px height) */}
           <div
             className={cn(
-              "relative overflow-hidden bg-[#071222] p-3",
-              isFeatured ? "min-h-[240px] md:min-h-full" : "h-[218px]"
+              "relative overflow-hidden bg-slate-50 dark:bg-[#071222] p-2.5",
+              isFeatured ? "h-[175px] md:h-full md:min-h-[175px]" : "h-[165px]",
             )}
           >
-            {hasImages ? (
-              <ProjectImageCarousel
-                title={title}
-                images={images}
-                accent={accent}
-                isFeatured={isFeatured}
-              />
-            ) : isBackendApiPreview ? (
-              <BackendApiPreview accent={accent} />
-            ) : (
-              <ProjectImageCarousel
-                title={title}
-                images={[]}
-                accent={accent}
-                isFeatured={isFeatured}
-              />
-            )}
+            <ProjectImageCarousel
+              title={title}
+              images={images}
+              accent={accent}
+              isFeatured={isFeatured}
+            />
             {projectLabel && (
-              <div className="absolute left-5 top-5 z-20 rounded-full border border-[#38BDF8]/20 bg-[#020617]/75 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#38BDF8] backdrop-blur">
+              <div className="absolute left-4 top-4 z-20 rounded-full border border-sky-300/40 dark:border-[#38BDF8]/20 bg-white/90 dark:bg-[#020617]/80 px-2.5 py-0.5 text-[9px] font-bold uppercase tracking-[0.08em] text-[#0891B2] dark:text-[#38BDF8] backdrop-blur shadow-xs">
                 {projectLabel}
               </div>
             )}
@@ -117,74 +110,78 @@ export function ProjectCard({
           {/* Content */}
           <CardContent
             className={cn(
-              "flex flex-col flex-1 gap-0",
-              isFeatured ? "p-[22px] md:p-[24px]" : "p-[22px]"
+              "flex flex-col flex-1 p-4 sm:p-5",
+              isFeatured ? "md:p-5" : "",
             )}
           >
-            <div className="mb-3 flex flex-wrap items-center gap-2">
-              {projectLabel && (
-                <Badge variant="accent" className="text-[10px]">
-                  {projectLabel}
-                </Badge>
-              )}
-            </div>
             <h3
               className={cn(
-                "font-bold text-[#F8FAFC] tracking-[-0.02em] mb-2",
-                isFeatured ? "text-[18px] leading-[1.25]" : "text-[16px]"
+                "font-heading font-bold text-slate-900 dark:text-[#F8FAFC] tracking-[-0.02em] mb-1.5",
+                isFeatured ? "text-[16px] sm:text-[17px]" : "text-[15px]",
               )}
             >
               {title}
             </h3>
+
             <p
               className={cn(
-                "text-[#94A3B8] leading-[1.72] mb-4 flex-1",
-                isFeatured ? "text-[12px] md:text-[13px]" : "text-[12px]"
+                "text-slate-600 dark:text-[#94A3B8] leading-[1.6] mb-3 line-clamp-3 flex-1",
+                isFeatured ? "text-[12px] sm:text-[13px]" : "text-[12px]",
               )}
             >
               {description}
             </p>
 
             {/* Stack badges */}
-            <div className="flex flex-wrap gap-[5px] mb-4">
-              {tags.map((tag) => (
+            <div className="flex flex-wrap gap-[5px] mb-3.5">
+              {tags.slice(0, 7).map((tag) => (
                 <Badge
                   key={tag}
-                  variant={colorToBadgeVariant[color]}
-                  className={cn(
-                    "font-mono text-[10px] tracking-[0.01em]",
-                    isFeatured && tag === "Full Stack Project" && "hidden"
-                  )}
+                  variant={colorToBadgeVariant[color] || "default"}
+                  className="font-mono text-[10px] px-2 py-0.5 tracking-[0.01em]"
                 >
                   {tag}
                 </Badge>
               ))}
+              {tags.length > 7 && (
+                <Badge
+                  variant="default"
+                  className="font-mono text-[10px] px-2 py-0.5"
+                >
+                  +{tags.length - 7}
+                </Badge>
+              )}
             </div>
 
-            {/* Actions */}
-            <div className="flex gap-2 relative z-20">
-              <Button
-                variant="outline"
-                size="sm"
-                className="flex-1 justify-center text-[11px]"
-                asChild
-              >
-                <a href={github} target="_blank" rel="noopener noreferrer">
-                  <Github size={12} /> GitHub
-                </a>
-              </Button>
+            {/* Actions (render only when real URLs exist) */}
+            {(hasGithub || hasDemo) && (
+              <div className="flex gap-2 pt-1 border-t border-slate-100 dark:border-white/[0.05]">
+                {hasGithub && (
+                  <Button
+                    variant="outline"
+                    size="sm"
+                    className="flex-1 justify-center text-[11px] h-8 gap-1.5 font-sans"
+                    asChild
+                  >
+                    <a href={github} target="_blank" rel="noopener noreferrer">
+                      <Github size={12} /> Source Code
+                    </a>
+                  </Button>
+                )}
 
-              <Button
-                size="sm"
-                className="flex-1 justify-center text-[11px] font-bold"
-                style={{ background: accent, color: "#020617" }}
-                asChild
-              >
-                <a href={demo} target="_blank" rel="noopener noreferrer">
-                  <ArrowUpRight size={12} /> Live Demo
-                </a>
-              </Button>
-            </div>
+                {hasDemo && (
+                  <Button
+                    size="sm"
+                    className="flex-1 justify-center text-[11px] font-bold h-8 gap-1.5 font-sans bg-[#0284C7] text-white hover:bg-[#0369A1] shadow-xs"
+                    asChild
+                  >
+                    <a href={demo} target="_blank" rel="noopener noreferrer">
+                      <ArrowUpRight size={12} /> Live Demo
+                    </a>
+                  </Button>
+                )}
+              </div>
+            )}
           </CardContent>
         </Card>
       </motion.div>

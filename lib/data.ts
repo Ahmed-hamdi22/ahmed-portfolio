@@ -19,81 +19,221 @@ export const skills = {
       "React.js",
       "Next.js",
       "TypeScript",
-      "JavaScript",
+      "JavaScript (ES6+)",
       "HTML5",
       "CSS3",
       "Tailwind CSS",
       "Shadcn/UI",
       "Bootstrap",
-      "Responsive Design",
-      "React Query",
-      "Redux",
+      "TanStack Query",
       "Context API",
+      "Redux",
       "React Hook Form",
       "Zod",
       "next-intl",
-      "UI Implementation",
-      "UX-focused Interfaces",
+      "NextAuth",
     ],
   },
-  Backend: {
+  "Backend & APIs": {
     color: "#34D399",
-    tags: [
-      "Node.js",
-      "Express.js",
-      "MongoDB",
-      "Mongoose",
-      "REST APIs",
-      "JWT Authentication",
-      "NextAuth",
-      "API Integration",
-    ],
+    tags: ["Node.js", "Express.js", "Nest.js", "REST APIs"],
+  },
+  Database: {
+    color: "#A78BFA",
+    tags: ["MongoDB", "PostgreSQL"],
   },
   "Tools & Workflow": {
-    color: "#A78BFA",
-    tags: ["Git", "GitHub", "Agile/Scrum", "CI/CD", "Vercel", "Postman"],
+    color: "#818CF8",
+    tags: ["Git", "GitHub", "Agile/Scrum", "CI/CD", "Docker"],
   },
 };
 
 export const experience = [
   {
-    role: "Frontend Development Diploma",
-    company: "Route Academy",
-    period: "Nov 2024 - Jun 2025",
-    location: "Cairo, Egypt",
-    description:
-      "Completed an intensive frontend development diploma covering React.js, Next.js, TypeScript, Tailwind CSS, and modern development practices. Built multiple projects including an e-commerce platform with admin dashboard, a fitness app, and an online exam application. Gained hands-on experience with authentication (NextAuth), form validation (Zod + React Hook Form), and Agile collaboration.",
-    tags: ["React.js", "Next.js", "TypeScript", "NextAuth", "Tailwind CSS"],
+    role: "Full Stack Developer",
+    company: "SooqKasem — Freelance",
+    period: "2025 – 2026",
+    location: "Remote",
+    description: `A full-stack Arabic grocery e-commerce platform built end-to-end with a focus on real-world business workflows and seamless UX:
+
+Dual-Mode Cart Architecture: Built an offline-first guest cart using Zustand, automatically syncing with MongoDB on user authentication.
+Customer Loyalty & Trust: Implemented verified-purchase reviews and an automated points & rewards engine with cancellation rollbacks.
+Order Automation: Designed a WhatsApp checkout pipeline with structured payloads and MongoDB bulk inventory updates.
+Business Intelligence: Developed a role-based admin dashboard with real-time sales KPIs and revenue tracking using Recharts.`,
+
+    tags: [
+      "React 19",
+      "Vite",
+      "TanStack Query",
+      "Zustand",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+    ],
+  },
+  {
+    role: "Full Stack Developer",
+    company: "imam abdulrahman bin faisal university ",
+    period: "2026",
+    location: "Remote",
+    description: `A production-grade, multi-tenant SaaS platform built for Imam Abdulrahman Bin Faisal University (IAU) to unify departmental project tracking and governance:
+
+Multi-Tenant Architecture & RBAC: Enforced strict workspace tenant isolation with a two-tier role hierarchy (System Manager platform oversight vs. Workspace Owner/Admin/Member).
+Real-Time Collaboration Engine: Implemented bi-directional task synchronization and targeted notification streams via JWT-authenticated Socket.io channels.
+Optimistic Multi-View Task Suite: Engineered interactive drag-and-drop Kanban (@dnd-kit) with TanStack Query optimistic rollbacks, alongside 42-day calendar matrices and horizontal timelines.
+Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregation pipelines ($facet, $dateTrunc) for project velocity metrics, backed by silent JWT refresh token rotation.`,
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Socket.io",
+      "Node.js",
+      "Express 5",
+      "MongoDB",
+      "TanStack Query",
+    ],
   },
   {
     role: "Frontend Developer Intern",
     company: "Elevate Tech",
-    period: "Nov 2024 - Jun 2025",
+    period: "Nov 2024 – Jun 2025",
     location: "Cairo, Egypt",
     description:
-      "Developed 3 production-level applications (E-commerce with Admin Dashboard, Fitness App, Online Exam) using React.js, Next.js, and TypeScript. Implemented secure authentication with NextAuth and JWT, form validation with Zod + React Hook Form, and collaborated in Agile sprints with code reviews and Git workflows.",
-    tags: ["React.js", "Next.js", "TypeScript", "NextAuth", "Tailwind CSS"],
+      "Developed responsive web applications using React.js, Next.js, and TypeScript. Implemented secure authentication with NextAuth and JWT, form validation with Zod and React Hook Form, and collaborated in Agile sprints with Git workflows.",
+    tags: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "NextAuth",
+      "Tailwind CSS",
+      "Zod",
+    ],
+  },
+];
+
+export const certifications = [
+  {
+    title: "Frontend Development Diploma",
+    provider: "Route Academy",
+    period: "Nov 2024 – Jun 2025",
+    location: "Cairo, Egypt",
+    description:
+      "Intensive frontend development diploma covering modern frontend engineering, component architecture, state management, authentication, form validation, and responsive UI implementation.",
+    topics: [
+      "React.js",
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "NextAuth",
+      "Zod",
+      "React Hook Form",
+      "Agile Collaboration",
+    ],
   },
   {
-    role: "Full Stack Track Trainee",
-    company: "Digilians",
+    title: "Full Stack Track Trainee",
+    provider: "Digilians",
     period: "2026",
     location: "Cairo, Egypt",
     description:
-      "Completed an intensive full stack development track covering modern frontend and backend technologies. Gained hands-on experience with Node.js, Express.js, MongoDB, and React ecosystem tools through project-based learning.",
-    tags: ["Node.js", "Express.js", "MongoDB", "React.js", "REST APIs"],
+      "Intensive full stack development track focused on backend API development, MongoDB database modeling, Express.js architecture, and React ecosystem tools through project-based learning.",
+    topics: ["Node.js", "Express.js", "MongoDB", "React.js", "REST APIs"],
+  },
+  {
+    title: "Node.js, Nest.js, PostgreSQL, GraphQL, and Security",
+    provider: "Udemy",
+    period: "Jan 2025",
+    location: "Online",
+    description:
+      "Comprehensive backend course covering advanced Node.js architecture, NestJS framework, PostgreSQL database design, GraphQL APIs, and web application security.",
+    topics: [
+      "Node.js",
+      "NestJS",
+      "PostgreSQL",
+      "GraphQL",
+      "Security",
+      "REST APIs",
+    ],
   },
 ];
 
 export type ProjectColor = "blue" | "green" | "purple" | "orange";
 
-export const projects = [
+export interface ProjectItem {
+  title: string;
+  description: string;
+  tags: string[];
+  github?: string;
+  demo?: string;
+  accent: string;
+  color: ProjectColor;
+  type: string;
+  images: string[];
+}
+
+export const projects: ProjectItem[] = [
   {
-    title: "Sanda - Recruitment & Job Management Platform",
-    description:
-      "Full-stack workforce marketplace connecting employers, workers, and administrators through role-based workflows. It supports job posting, applications, applicant management, status tracking, protected routes, wallet states, real-time notifications with Socket.io, QR attendance check-in, and secure API-driven workflows.",
+    title: "SooqKasem —  E-Commerce Platform",
+    description: `A full-stack Arabic grocery e-commerce platform built end-to-end with a focus on real-world business workflows and seamless UX:
+
+Dual-Mode Cart Architecture: Built an offline-first guest cart using Zustand, automatically syncing with MongoDB on user authentication.
+Customer Loyalty & Trust: Implemented verified-purchase reviews and an automated points & rewards engine with cancellation rollbacks.
+Order Automation: Designed a WhatsApp checkout pipeline with structured payloads and MongoDB bulk inventory updates.
+Business Intelligence: Developed a role-based admin dashboard with real-time sales KPIs and revenue tracking using Recharts.`,
     tags: [
-      "Full Stack Project",
+      "React 19",
+      "Vite",
+      "TanStack Query",
+      "Zustand",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Mongoose",
+      "JWT",
+    ],
+    demo: "https://sooqkasem.com/",
+    accent: "#34D399",
+    color: "green",
+    type: "Full Stack Project",
+    images: [
+      "/images/sooqkasem-2.png",
+      "/images/sooqkasem-3.png",
+      "/images/sooqkasem-1.png",
+    ],
+  },
+  {
+    title: "Project Tracker & Team Governance Platform",
+    description: `A production-grade, multi-tenant SaaS platform built for Imam Abdulrahman Bin Faisal University (IAU) to unify departmental project tracking and governance:
+
+Multi-Tenant Architecture & RBAC: Enforced strict workspace tenant isolation with a two-tier role hierarchy (System Manager platform oversight vs. Workspace Owner/Admin/Member).
+Real-Time Collaboration Engine: Implemented bi-directional task synchronization and targeted notification streams via JWT-authenticated Socket.io channels.
+Optimistic Multi-View Task Suite: Engineered interactive drag-and-drop Kanban (@dnd-kit) with TanStack Query optimistic rollbacks, alongside 42-day calendar matrices and horizontal timelines.
+Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregation pipelines ($facet, $dateTrunc) for project velocity metrics, backed by silent JWT refresh token rotation.`,
+    tags: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "TanStack Query",
+      "Node.js",
+      "Express 5",
+      "MongoDB",
+      "Socket.io",
+    ],
+    demo: "https://projectly-mauve.vercel.app/login",
+    accent: "#A78BFA",
+    color: "purple",
+    type: "Full Stack Project",
+    images: [
+      "/images/projectly-1.jpg",
+      "/images/projectly-2.jpg",
+      "/images/projectly-3.jpg",
+    ],
+  },
+  {
+    title: "Sanda — Recruitment & Job Management Platform",
+    description:
+      "Full-stack workforce marketplace connecting employers and applicants with job postings, application tracking, real-time notifications via Socket.io, and secure authentication.",
+    tags: [
       "React",
       "TypeScript",
       "Tailwind CSS",
@@ -107,8 +247,8 @@ export const projects = [
     github: "https://github.com/Ahmed-hamdi22/sanda-front",
     demo: "https://sanda-ten.vercel.app/",
     accent: "#38BDF8",
-    color: "blue" as ProjectColor,
-    type: "Featured Full Stack Project",
+    color: "blue",
+    type: "Full Stack Project",
     images: [
       "/images/sanda-1.png",
       "/images/sanda-2.png",
@@ -116,9 +256,9 @@ export const projects = [
     ],
   },
   {
-    title: "Flower Shop Dashboard",
+    title: "Flower Shop E-Commerce & Admin Dashboard",
     description:
-      "Full e-commerce platform with a secure admin dashboard, Stripe checkout, CRUD for products & categories, real-time analytics, sales visualization, and multilingual support via next-intl.",
+      "Full e-commerce platform with product & category management, Stripe checkout, sales analytics visualization, and multilingual support via next-intl.",
     tags: [
       "Next.js 14",
       "TypeScript",
@@ -126,11 +266,12 @@ export const projects = [
       "TanStack Query",
       "Shadcn/UI",
       "Zod",
+      "next-intl",
     ],
     github: "https://github.com/Ahmed-hamdi22/e-commerce-flower-shop",
-    demo: "https://e-commerce-flower-shop-kqil-j2esixyri-ahmedhamdi22s-projects.vercel.app/en",
+    demo: "https://e-commerce-flower-shop-ulqj.vercel.app/en",
     accent: "#38BDF8",
-    color: "blue" as ProjectColor,
+    color: "blue",
     type: "Full Stack Project",
     images: [
       "/images/flower-shop-1.png",
@@ -139,9 +280,9 @@ export const projects = [
     ],
   },
   {
-    title: "Super Fitness App",
+    title: "Super Fitness Web App",
     description:
-      "Multilingual fitness platform allowing users to track workouts by level, access healthy recipes, and engage with an AI-powered chatbot. Features animated carousels and tab-based navigation.",
+      "Multilingual fitness platform allowing users to explore structured workout routines by difficulty level, browse healthy recipes, and track training sessions.",
     tags: [
       "React",
       "TypeScript",
@@ -153,7 +294,7 @@ export const projects = [
     github: "https://github.com/Ahmed-hamdi22/super-fitness",
     demo: "https://super-fitness-m5vn-4jgm1sdgq-ahmedhamdi22s-projects.vercel.app/",
     accent: "#34D399",
-    color: "green" as ProjectColor,
+    color: "green",
     type: "Frontend Project",
     images: [
       "/images/super-fitness-1.png",
@@ -164,12 +305,19 @@ export const projects = [
   {
     title: "Online Exam Platform",
     description:
-      "Dynamic exam application with backend API integration, timer-based exam sessions, auto-calculated results, secure NextAuth authentication, and full localization support.",
-    tags: ["Next.js", "TypeScript", "NextAuth", "TanStack Query", "Zod"],
+      "Interactive exam application with timer-based assessment sessions, real-time result calculations, NextAuth authentication, and multi-language support.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "NextAuth",
+      "TanStack Query",
+      "Zod",
+      "Tailwind CSS",
+    ],
     github: "https://github.com/Ahmed-hamdi22/Online-Exam-app",
     demo: "https://online-exam-app-c34g.vercel.app/en/dashboard/subjects",
     accent: "#A78BFA",
-    color: "purple" as ProjectColor,
+    color: "purple",
     type: "Frontend Project",
     images: [
       "/images/online-exam-1.png",
@@ -180,36 +328,24 @@ export const projects = [
   {
     title: "FreshCart E-Commerce",
     description:
-      "Responsive shopping platform with full authentication, real-time cart management with quantity control, Stripe checkout, wishlist features, and advanced category/brand filtering.",
+      "Modern shopping platform featuring user authentication, real-time cart with quantity control, Stripe checkout, wishlist, and product filtering.",
     tags: [
       "React.js",
       "Context API",
       "Tailwind CSS",
       "Stripe",
       "Axios",
-      "Vercel",
+      "REST APIs",
     ],
     github: "https://github.com/Ahmed-hamdi22/freshEcommerce",
     demo: "https://fresh-ecommerce.vercel.app/",
-    accent: "#FB923C",
-    color: "orange" as ProjectColor,
+    accent: "#38BDF8",
+    color: "blue",
     type: "Frontend Project",
     images: [
       "/images/freshcart-1.png",
       "/images/freshcart-2.png",
       "/images/freshcart-3.png",
     ],
-  },
-  {
-    title: "E-commerce-nodejs",
-    description:
-      "Backend API for an e-commerce platform built with Node.js, Express.js, and MongoDB. Features include user authentication with JWT, product management, category handling, and secure payment processing.",
-    tags: ["Node.js", "Express.js", "MongoDB", "JWT", "REST APIs"],
-    github: "https://github.com/Ahmed-hamdi22/E-commerce-nodejs",
-    demo: "https://github.com/Ahmed-hamdi22/E-commerce-nodejs",
-    accent: "#FB923C",
-    color: "orange" as ProjectColor,
-    type: "Backend API",
-    images: [],
   },
 ];

@@ -18,7 +18,7 @@ export function GlowBackground({ variant = "section", color = "blue", className 
 
   if (variant === "hero") {
     return (
-      <div className={cn("absolute inset-0 pointer-events-none z-0", className)}>
+      <div className={cn("absolute inset-0 pointer-events-none z-0 opacity-20 dark:opacity-100", className)}>
         {/* Primary radial - top center */}
         <div
           className="absolute inset-0"
@@ -44,7 +44,7 @@ export function GlowBackground({ variant = "section", color = "blue", className 
   if (variant === "section") {
     return (
       <div
-        className={cn("absolute inset-0 pointer-events-none z-0", className)}
+        className={cn("absolute inset-0 pointer-events-none z-0 opacity-25 dark:opacity-100", className)}
         style={{
           background: `radial-gradient(ellipse 60% 80% at 80% 50%, ${c}0.08) 0%, transparent 70%)`,
         }}
@@ -55,7 +55,7 @@ export function GlowBackground({ variant = "section", color = "blue", className 
   if (variant === "card") {
     return (
       <div
-        className={cn("absolute -top-16 -right-16 w-44 h-44 pointer-events-none", className)}
+        className={cn("absolute -top-16 -right-16 w-44 h-44 pointer-events-none opacity-25 dark:opacity-100", className)}
         style={{
           background: `radial-gradient(circle, ${c}0.14) 0%, transparent 70%)`,
         }}
@@ -66,7 +66,7 @@ export function GlowBackground({ variant = "section", color = "blue", className 
   if (variant === "side") {
     return (
       <div
-        className={cn("absolute inset-0 pointer-events-none", className)}
+        className={cn("absolute inset-0 pointer-events-none opacity-20 dark:opacity-100", className)}
         style={{
           background: `radial-gradient(ellipse at 25% 65%, ${c}0.16) 0%, transparent 56%), radial-gradient(ellipse at 75% 25%, ${c}0.07) 0%, transparent 50%)`,
         }}

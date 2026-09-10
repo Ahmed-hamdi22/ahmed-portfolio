@@ -13,14 +13,14 @@ interface BadgeGroupProps {
 
 export function BadgeGroup({ tags, variant = "default", className, size = "md" }: BadgeGroupProps) {
   return (
-    <div className={cn("flex flex-wrap gap-[6px]", className)}>
+    <div className={cn("flex flex-wrap gap-1.5", className)}>
       {tags.map((tag) => (
         <Badge
           key={tag}
           variant={variant}
           className={cn(
-            "font-mono tracking-[0.01em]",
-            size === "sm" && "text-[10px] px-[8px] py-[2px]"
+            "font-sans font-medium tracking-[0.01em]",
+            size === "sm" ? "text-[11px] px-[8.5px] py-[2.5px]" : "text-[11.5px] sm:text-[12px] px-[10px] py-[3.5px]"
           )}
         >
           {tag}

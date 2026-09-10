@@ -1,23 +1,16 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import {
   ArrowDown,
-  Braces,
-  Boxes,
-  CalendarDays,
   ChevronRight,
   Code2,
   Database,
   Download,
-  FolderKanban,
-  GitBranch,
   Github,
-  Monitor,
-  Search,
+  Mail,
   Server,
-  Settings,
-  UserCheck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -27,435 +20,379 @@ import { Container } from "@/components/ui/container";
 import { siteConfig } from "@/lib/data";
 
 export function Hero() {
-  const stack = [
-    { label: "React", icon: <Code2 size={14} /> },
-    { label: "Next.js", icon: <Braces size={14} /> },
-    { label: "TypeScript", icon: <span className="text-[11px] font-black">TS</span> },
-    { label: "Node.js", icon: <Server size={14} /> },
-    { label: "MongoDB", icon: <Database size={14} /> },
-  ];
-  const stats = [
-    { label: "Years Experience", value: "2+", icon: <CalendarDays size={17} /> },
-    { label: "Projects Completed", value: "10+", icon: <FolderKanban size={17} /> },
-    { label: "for opportunities", value: "Available", icon: <UserCheck size={17} /> },
+  const shouldReduceMotion = useReducedMotion();
+  const [roleIndex, setRoleIndex] = useState(0);
+  const [hasMounted, setHasMounted] = useState(false);
+
+  useEffect(() => {
+    setHasMounted(true);
+    if (shouldReduceMotion) return;
+
+    const interval = setInterval(() => {
+      setRoleIndex((prev) => (prev === 0 ? 1 : 0));
+    }, 3500);
+
+    return () => clearInterval(interval);
+  }, [shouldReduceMotion]);
+
+  const marqueeSkills = [
+    { label: "React", icon: <Code2 size={14} className="text-[#38BDF8]" /> },
+    {
+      label: "Next.js",
+      icon: <span className="font-black text-[11px] text-slate-900 dark:text-white">N</span>,
+    },
+    {
+      label: "TypeScript",
+      icon: <span className="font-black text-[11px] text-[#3178C6]">TS</span>,
+    },
+    {
+      label: "JavaScript",
+      icon: <span className="font-black text-[11px] text-[#F7DF1E]">JS</span>,
+    },
+    { label: "Node.js", icon: <Server size={14} className="text-[#22C55E]" /> },
+    {
+      label: "NestJS",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="#E0234E"
+          className="shrink-0"
+        >
+          <path d="M14.131.047c-.173 0-.334.037-.483.087.316.21.49.49.576.806.007.043.019.074.025.117a.681.681 0 0 1 .013.112c.024.545-.143.614-.26.936-.18.415-.13.861.086 1.22a.74.74 0 0 0 .074.137c-.235-1.568 1.073-1.803 1.314-2.293.019-.428-.334-.713-.613-.911a1.37 1.37 0 0 0-.732-.21zM16.102.4c-.024.143-.006.106-.012.18-.006.05-.006.112-.012.161-.013.05-.025.1-.044.149-.012.05-.03.1-.05.149l-.067.142c-.02.025-.031.05-.05.075l-.037.055a2.152 2.152 0 0 1-.093.124c-.037.038-.068.081-.112.112v.006c-.037.031-.074.068-.118.1-.13.099-.278.173-.415.266-.043.03-.087.056-.124.093a.906.906 0 0 0-.118.099c-.043.037-.074.074-.111.118-.031.037-.068.08-.093.124a1.582 1.582 0 0 0-.087.13c-.025.05-.043.093-.068.142-.019.05-.037.093-.05.143a2.007 2.007 0 0 0-.043.155c-.006.025-.006.056-.012.08-.007.025-.007.05-.013.075 0 .05-.006.105-.006.155 0 .037 0 .074.006.111 0 .05.006.1.019.155.006.05.018.1.03.15.02.049.032.098.05.148.013.03.031.062.044.087l-1.426-.552c-.241-.068-.477-.13-.719-.186l-.39-.093c-.372-.074-.75-.13-1.128-.167-.013 0-.019-.006-.031-.006A11.082 11.082 0 0 0 8.9 2.855c-.378.025-.756.074-1.134.136a12.45 12.45 0 0 0-.837.174l-.279.074c-.092.037-.18.08-.266.118l-.205.093c-.012.006-.024.006-.03.012-.063.031-.118.056-.174.087a2.738 2.738 0 0 0-.236.118c-.043.018-.086.043-.124.062a.559.559 0 0 1-.055.03c-.056.032-.112.063-.162.094a1.56 1.56 0 0 0-.148.093c-.044.03-.087.055-.124.086-.006.007-.013.007-.019.013-.037.025-.08.056-.118.087l-.012.012-.093.074c-.012.007-.025.019-.037.025-.031.025-.062.056-.093.08-.006.013-.019.02-.025.025-.037.038-.074.069-.111.106-.007 0-.007.006-.013.012a1.742 1.742 0 0 0-.111.106c-.007.006-.007.012-.013.012a1.454 1.454 0 0 0-.093.1c-.012.012-.03.024-.043.036a1.374 1.374 0 0 1-.106.112c-.006.012-.018.019-.024.03-.05.05-.093.1-.143.15l-.018.018c-.1.106-.205.211-.317.304-.111.1-.229.192-.347.273a3.777 3.777 0 0 1-.762.421c-.13.056-.267.106-.403.149-.26.056-.527.161-.756.18-.05 0-.105.012-.155.018l-.155.037-.149.056c-.05.019-.099.044-.148.068-.044.031-.093.056-.137.087a1.011 1.011 0 0 0-.124.106c-.043.03-.087.074-.124.111-.037.043-.074.08-.105.124-.031.05-.068.093-.093.143a1.092 1.092 0 0 0-.087.142c-.025.056-.05.106-.068.161-.019.05-.037.106-.056.161-.012.05-.025.1-.03.15 0 .005-.007.012-.007.018-.012.056-.012.13-.019.167C.006 7.95 0 7.986 0 8.03a.657.657 0 0 0 .074.31v.006c.019.037.044.075.069.112.024.037.05.074.08.111.031.031.068.069.106.1a.906.906 0 0 0 .117.099c.149.13.186.173.378.272.031.019.062.031.1.05.006 0 .012.006.018.006 0 .013 0 .019.006.031a1.272 1.272 0 0 0 .08.298c.02.037.032.074.05.111.007.013.013.025.02.031.024.05.049.093.073.137l.093.13c.031.037.069.08.106.118.037.037.074.068.118.105 0 0 .006.006.012.006.037.031.074.062.112.087a.986.986 0 0 0 .136.08c.043.025.093.05.142.069a.73.73 0 0 0 .124.043c.007.006.013.006.025.012.025.007.056.013.08.019-.018.335-.024.65.026.762.055.124.328-.254.6-.688-.036.428-.061.93 0 1.079.069.155.44-.329.763-.862 4.395-1.016 8.405 2.02 8.826 6.31-.08-.67-.905-1.041-1.283-.948-.186.458-.502 1.047-1.01 1.413.043-.41.025-.83-.062-1.24a4.009 4.009 0 0 1-.769 1.562c-.588.043-1.177-.242-1.487-.67-.025-.018-.031-.055-.05-.08-.018-.043-.037-.087-.05-.13a.515.515 0 0 1-.037-.13c-.006-.044-.006-.087-.006-.137v-.093a.992.992 0 0 1 .031-.13c.013-.043.025-.086.044-.13.024-.043.043-.087.074-.13.105-.298.105-.54-.087-.682a.706.706 0 0 0-.118-.062c-.024-.006-.055-.018-.08-.025l-.05-.018a.847.847 0 0 0-.13-.031.472.472 0 0 0-.13-.019 1.01 1.01 0 0 0-.136-.012c-.031 0-.062.006-.093.006a.484.484 0 0 0-.137.019c-.043.006-.086.012-.13.024a1.068 1.068 0 0 0-.13.044c-.043.018-.08.037-.124.056-.037.018-.074.043-.118.062-1.444.942-.582 3.148.403 3.787-.372.068-.75.148-.855.229l-.013.012c.267.161.546.298.837.416.397.13.818.247 1.004.297v.006a5.996 5.996 0 0 0 1.562.112c2.746-.192 4.996-2.281 5.405-5.033l.037.161c.019.112.043.23.056.347v.006c.012.056.018.112.025.162v.024c.006.056.012.112.012.162.006.068.012.136.012.204v.1c0 .03.007.067.007.098 0 .038-.007.075-.007.112v.087c0 .043-.006.08-.006.124 0 .025 0 .05-.006.08 0 .044-.006.087-.006.137-.006.018-.006.037-.006.055l-.02.143c0 .019 0 .037-.005.056-.007.062-.019.118-.025.18v.012l-.037.174v.018l-.037.167c0 .007-.007.02-.007.025a1.663 1.663 0 0 1-.043.168v.018c-.019.062-.037.118-.05.174-.006.006-.006.012-.006.012l-.056.186c-.024.062-.043.118-.068.18-.025.062-.043.124-.068.18-.025.062-.05.117-.074.18h-.007c-.024.055-.05.117-.08.173a.302.302 0 0 1-.019.043c-.006.006-.006.013-.012.019a5.867 5.867 0 0 1-1.742 2.082c-.05.031-.099.069-.149.106-.012.012-.03.018-.043.03a2.603 2.603 0 0 1-.136.094l.018.037h.007l.26-.037h.006c.161-.025.322-.056.483-.087.044-.006.093-.019.137-.031l.087-.019c.043-.006.086-.018.13-.024.037-.013.074-.02.111-.031.62-.15 1.221-.354 1.798-.595a9.926 9.926 0 0 1-3.85 3.142c.714-.05 1.426-.167 2.114-.366a9.903 9.903 0 0 0 5.857-4.68 9.893 9.893 0 0 1-1.667 3.986 9.758 9.758 0 0 0 1.655-1.376 9.824 9.824 0 0 0 2.61-5.268c.21.98.272 1.99.18 2.987 4.474-6.241.371-12.712-1.346-14.416-.006-.013-.012-.019-.012-.031-.006.006-.006.006-.006.012 0-.006 0-.006-.007-.012 0 .074-.006.148-.012.223a8.34 8.34 0 0 1-.062.415c-.03.136-.068.273-.105.41-.044.13-.093.266-.15.396a5.322 5.322 0 0 1-.185.378 4.735 4.735 0 0 1-.477.688c-.093.111-.192.21-.292.31a3.994 3.994 0 0 1-.18.155l-.142.124a3.459 3.459 0 0 1-.347.241 4.295 4.295 0 0 1-.366.211c-.13.062-.26.118-.39.174a4.364 4.364 0 0 1-.818.223c-.143.025-.285.037-.422.05a4.914 4.914 0 0 1-.297.012 4.66 4.66 0 0 1-.422-.025 3.137 3.137 0 0 1-.421-.062 3.136 3.136 0 0 1-.415-.105h-.007c.137-.013.273-.025.41-.05a4.493 4.493 0 0 0 .818-.223c.136-.05.266-.112.39-.174.13-.062.248-.13.372-.204.118-.08.235-.161.347-.248.112-.087.217-.18.316-.279.105-.093.198-.198.291-.304.093-.111.18-.223.26-.334.013-.019.026-.044.038-.062.062-.1.124-.199.18-.298a4.272 4.272 0 0 0 .334-.775c.044-.13.075-.266.106-.403.025-.142.05-.278.062-.415.012-.142.025-.285.025-.421 0-.1-.007-.199-.013-.298a6.726 6.726 0 0 0-.05-.415 4.493 4.493 0 0 0-.092-.415c-.044-.13-.087-.267-.137-.397-.05-.13-.111-.26-.173-.384-.069-.124-.137-.248-.211-.366a6.843 6.843 0 0 0-.248-.34c-.093-.106-.186-.212-.285-.317a3.878 3.878 0 0 0-.161-.155c-.28-.217-.57-.421-.862-.607a1.154 1.154 0 0 0-.124-.062 2.415 2.415 0 0 0-.589-.26Z" />
+        </svg>
+      ),
+    },
+    {
+      label: "PostgreSQL",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="#4169E1"
+          className="shrink-0"
+        >
+          <path d="M23.5594 14.7228a.5269.5269 0 0 0-.0563-.1191c-.139-.2632-.4768-.3418-1.0074-.2321-1.6533.3411-2.2935.1312-2.5256-.0191 1.342-2.0482 2.445-4.522 3.0411-6.8297.2714-1.0507.7982-3.5237.1222-4.7316a1.5641 1.5641 0 0 0-.1509-.235C21.6931.9086 19.8007.0248 17.5099.0005c-1.4947-.0158-2.7705.3461-3.1161.4794a9.449 9.449 0 0 0-.5159-.0816 8.044 8.044 0 0 0-1.3114-.1278c-1.1822-.0184-2.2038.2642-3.0498.8406-.8573-.3211-4.7888-1.645-7.2219.0788C.9359 2.1526.3086 3.8733.4302 6.3043c.0409.818.5069 3.334 1.2423 5.7436.4598 1.5065.9387 2.7019 1.4334 3.582.553.9942 1.1259 1.5933 1.7143 1.7895.4474.1491 1.1327.1441 1.8581-.7279.8012-.9635 1.5903-1.8258 1.9446-2.2069.4351.2355.9064.3625 1.39.3772a.0569.0569 0 0 0 .0004.0041 11.0312 11.0312 0 0 0-.2472.3054c-.3389.4302-.4094.5197-1.5002.7443-.3102.064-1.1344.2339-1.1464.8115-.0025.1224.0329.2309.0919.3268.2269.4231.9216.6097 1.015.6331 1.3345.3335 2.5044.092 3.3714-.6787-.017 2.231.0775 4.4174.3454 5.0874.2212.5529.7618 1.9045 2.4692 1.9043.2505 0 .5263-.0291.8296-.0941 1.7819-.3821 2.5557-1.1696 2.855-2.9059.1503-.8707.4016-2.8753.5388-4.1012.0169-.0703.0357-.1207.057-.1362.0007-.0005.0697-.0471.4272.0307a.3673.3673 0 0 0 .0443.0068l.2539.0223.0149.001c.8468.0384 1.9114-.1426 2.5312-.4308.6438-.2988 1.8057-1.0323 1.5951-1.6698zM2.371 11.8765c-.7435-2.4358-1.1779-4.8851-1.2123-5.5719-.1086-2.1714.4171-3.6829 1.5623-4.4927 1.8367-1.2986 4.8398-.5408 6.108-.13-.0032.0032-.0066.0061-.0098.0094-2.0238 2.044-1.9758 5.536-1.9708 5.7495-.0002.0823.0066.1989.0162.3593.0348.5873.0996 1.6804-.0735 2.9184-.1609 1.1504.1937 2.2764.9728 3.0892.0806.0841.1648.1631.2518.2374-.3468.3714-1.1004 1.1926-1.9025 2.1576-.5677.6825-.9597.5517-1.0886.5087-.3919-.1307-.813-.5871-1.2381-1.3223-.4796-.839-.9635-2.0317-1.4155-3.5126zm6.0072 5.0871c-.1711-.0428-.3271-.1132-.4322-.1772.0889-.0394.2374-.0902.4833-.1409 1.2833-.2641 1.4815-.4506 1.9143-1.0002.0992-.126.2116-.2687.3673-.4426a.3549.3549 0 0 0 .0737-.1298c.1708-.1513.2724-.1099.4369-.0417.156.0646.3078.26.3695.4752.0291.1016.0619.2945-.0452.4444-.9043 1.2658-2.2216 1.2494-3.1676 1.0128zm2.094-3.988-.0525.141c-.133.3566-.2567.6881-.3334 1.003-.6674-.0021-1.3168-.2872-1.8105-.8024-.6279-.6551-.9131-1.5664-.7825-2.5004.1828-1.3079.1153-2.4468.079-3.0586-.005-.0857-.0095-.1607-.0122-.2199.2957-.2621 1.6659-.9962 2.6429-.7724.4459.1022.7176.4057.8305.928.5846 2.7038.0774 3.8307-.3302 4.7363-.084.1866-.1633.3629-.2311.5454zm7.3637 4.5725c-.0169.1768-.0358.376-.0618.5959l-.146.4383a.3547.3547 0 0 0-.0182.1077c-.0059.4747-.054.6489-.115.8693-.0634.2292-.1353.4891-.1794 1.0575-.11 1.4143-.8782 2.2267-2.4172 2.5565-1.5155.3251-1.7843-.4968-2.0212-1.2217a6.5824 6.5824 0 0 0-.0769-.2266c-.2154-.5858-.1911-1.4119-.1574-2.5551.0165-.5612-.0249-1.9013-.3302-2.6462.0044-.2932.0106-.5909.019-.8918a.3529.3529 0 0 0-.0153-.1126 1.4927 1.4927 0 0 0-.0439-.208c-.1226-.4283-.4213-.7866-.7797-.9351-.1424-.059-.4038-.1672-.7178-.0869.067-.276.1831-.5875.309-.9249l.0529-.142c.0595-.16.134-.3257.213-.5012.4265-.9476 1.0106-2.2453.3766-5.1772-.2374-1.0981-1.0304-1.6343-2.2324-1.5098-.7207.0746-1.3799.3654-1.7088.5321a5.6716 5.6716 0 0 0-.1958.1041c.0918-1.1064.4386-3.1741 1.7357-4.4823a4.0306 4.0306 0 0 1 .3033-.276.3532.3532 0 0 0 .1447-.0644c.7524-.5706 1.6945-.8506 2.802-.8325.4091.0067.8017.0339 1.1742.081 1.939.3544 3.2439 1.4468 4.0359 2.3827.8143.9623 1.2552 1.9315 1.4312 2.4543-1.3232-.1346-2.2234.1268-2.6797.779-.9926 1.4189.543 4.1729 1.2811 5.4964.1353.2426.2522.4522.2889.5413.2403.5825.5515.9713.7787 1.2552.0696.087.1372.1714.1885.245-.4008.1155-1.1208.3825-1.0552 1.717-.0123.1563-.0423.4469-.0834.8148-.0461.2077-.0702.4603-.0994.7662zm.8905-1.6211c-.0405-.8316.2691-.9185.5967-1.0105a2.8566 2.8566 0 0 0 .135-.0406 1.202 1.202 0 0 0 .1342.103c.5703.3765 1.5823.4213 3.0068.1344-.2016.1769-.5189.3994-.9533.6011-.4098.1903-1.0957.333-1.7473.3636-.7197.0336-1.0859-.0807-1.1721-.151zm.5695-9.2712c-.0059.3508-.0542.6692-.1054 1.0017-.055.3576-.112.7274-.1264 1.1762-.0142.4368.0404.8909.0932 1.3301.1066.887.216 1.8003-.2075 2.7014a3.5272 3.5272 0 0 1-.1876-.3856c-.0527-.1276-.1669-.3326-.3251-.6162-.6156-1.1041-2.0574-3.6896-1.3193-4.7446.3795-.5427 1.3408-.5661 2.1781-.463zm.2284 7.0137a12.3762 12.3762 0 0 0-.0853-.1074l-.0355-.0444c.7262-1.1995.5842-2.3862.4578-3.4385-.0519-.4318-.1009-.8396-.0885-1.2226.0129-.4061.0666-.7543.1185-1.0911.0639-.415.1288-.8443.1109-1.3505.0134-.0531.0188-.1158.0118-.1902-.0457-.4855-.5999-1.938-1.7294-3.253-.6076-.7073-1.4896-1.4972-2.6889-2.0395.5251-.1066 1.2328-.2035 2.0244-.1859 2.0515.0456 3.6746.8135 4.8242 2.2824a.908.908 0 0 1 .0667.1002c.7231 1.3556-.2762 6.2751-2.9867 10.5405zm-8.8166-6.1162c-.025.1794-.3089.4225-.6211.4225a.5821.5821 0 0 1-.0809-.0056c-.1873-.026-.3765-.144-.5059-.3156-.0458-.0605-.1203-.178-.1055-.2844.0055-.0401.0261-.0985.0925-.1488.1182-.0894.3518-.1226.6096-.0867.3163.0441.6426.1938.6113.4186zm7.9305-.4114c.0111.0792-.049.201-.1531.3102-.0683.0717-.212.1961-.4079.2232a.5456.5456 0 0 1-.075.0052c-.2935 0-.5414-.2344-.5607-.3717-.024-.1765.2641-.3106.5611-.352.297-.0414.6111.0088.6356.1851z" />
+        </svg>
+      ),
+    },
+    {
+      label: "MongoDB",
+      icon: <Database size={14} className="text-[#10B981]" />,
+    },
+    {
+      label: "Tailwind CSS",
+      icon: <span className="font-black text-[11px] text-[#38BDF8]">TW</span>,
+    },
+    {
+      label: "shadcn/ui",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="currentColor"
+          className="shrink-0 text-slate-900 dark:text-[#F8FAFC]"
+        >
+          <path d="M22.219 11.784 11.784 22.219c-.407.407-.407 1.068 0 1.476.407.407 1.068.407 1.476 0L23.695 13.26c.407-.408.407-1.069 0-1.476-.408-.407-1.069-.407-1.476 0ZM20.132.305.305 20.132c-.407.407-.407 1.068 0 1.476.408.407 1.069.407 1.476 0L21.608 1.781c.407-.407.407-1.068 0-1.476-.408-.407-1.069-.407-1.476 0Z" />
+        </svg>
+      ),
+    },
+    {
+      label: "Redux",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="#764ABC"
+          className="shrink-0"
+        >
+          <path d="M16.634 16.504c.87-.075 1.543-.84 1.5-1.754-.047-.914-.796-1.648-1.709-1.648h-.061a1.71 1.71 0 00-1.648 1.769c.03.479.226.869.494 1.153-1.048 2.038-2.621 3.536-5.005 4.795-1.603.838-3.296 1.154-4.944.93-1.378-.195-2.456-.81-3.116-1.799-.988-1.499-1.078-3.116-.255-4.734.6-1.17 1.499-2.023 2.099-2.443a9.96 9.96 0 01-.42-1.543C-.868 14.408-.416 18.752.932 20.805c1.004 1.498 3.057 2.456 5.304 2.456.6 0 1.23-.044 1.843-.194 3.897-.749 6.848-3.086 8.541-6.532zm5.348-3.746c-2.32-2.728-5.738-4.226-9.634-4.226h-.51c-.253-.554-.837-.899-1.498-.899h-.045c-.943 0-1.678.81-1.647 1.753.03.898.794 1.648 1.708 1.648h.074a1.69 1.69 0 001.499-1.049h.555c2.309 0 4.495.674 6.488 1.992 1.527 1.005 2.622 2.323 3.237 3.897.538 1.288.509 2.547-.045 3.597-.855 1.647-2.294 2.517-4.196 2.517-1.199 0-2.367-.375-2.967-.644-.36.298-.96.793-1.394 1.093 1.318.598 2.652.943 3.94.943 2.922 0 5.094-1.647 5.919-3.236.898-1.798.824-4.824-1.47-7.416zM6.49 17.042c.03.899.793 1.648 1.708 1.648h.06a1.688 1.688 0 001.648-1.768c0-.9-.779-1.647-1.693-1.647h-.06c-.06 0-.15 0-.226.029-1.243-2.098-1.768-4.347-1.572-6.772.12-1.828.72-3.417 1.797-4.735.9-1.124 2.593-1.68 3.747-1.708 3.236-.061 4.585 3.971 4.689 5.574l1.498.45C17.741 3.197 14.686.62 11.764.62 9.02.62 6.49 2.613 5.47 5.535 4.077 9.43 4.991 13.177 6.7 16.174c-.15.195-.24.539-.21.868z" />
+        </svg>
+      ),
+    },
+    {
+      label: "Zustand",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="#E97B4D"
+          className="shrink-0"
+        >
+          <circle cx="5" cy="6" r="3" />
+          <circle cx="19" cy="6" r="3" />
+          <ellipse cx="12" cy="14" rx="9" ry="8" />
+          <circle cx="8.5" cy="12" r="1.1" fill="#0B1120" />
+          <circle cx="15.5" cy="12" r="1.1" fill="#0B1120" />
+          <ellipse cx="12" cy="16" rx="3.5" ry="2.2" fill="#F8FAFC" />
+          <ellipse cx="12" cy="15.2" rx="1.6" ry="1.1" fill="#0B1120" />
+        </svg>
+      ),
+    },
+    {
+      label: "Context API",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="none"
+          stroke="#61DAFB"
+          strokeWidth="2.2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="shrink-0"
+        >
+          <circle cx="12" cy="12" r="3.2" fill="#61DAFB" />
+          <path d="M12 2a10 10 0 0 0-7.07 17.07M12 22a10 10 0 0 0 7.07-17.07" />
+        </svg>
+      ),
+    },
+    {
+      label: "React Query",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="#FF4154"
+          className="shrink-0"
+        >
+          <path d="M6.9297 13.6875c.164-.0938.375-.0352.4687.1328l.0625.1055c.4805.8515.9805 1.6601 1.5 2.4258.6133.9023 1.3047 1.8164 2.0743 2.7421a.3455.3455 0 0 1-.0391.4844l-.0742.0664c-2.543 2.2227-4.1914 2.664-4.9532 1.332-.746-1.3046-.4765-3.6718.8086-7.1093a.3437.3437 0 0 1 .1524-.1797ZM17.75 16.3008c.1836-.0313.3594.086.3945.2695l.0196.1016c.6289 3.2851.1875 4.9297-1.3243 4.9297-1.4804 0-3.3593-1.4024-5.6484-4.2032a.3271.3271 0 0 1-.0742-.2226c0-.1875.1562-.3399.3437-.3399h.1211a32.9838 32.9838 0 0 0 2.8086-.0976c1.0703-.086 2.1914-.2305 3.3594-.4375zm.871-6.9766a.3528.3528 0 0 1 .4454-.211l.1016.0352c3.2617 1.1094 4.5039 2.332 3.7187 3.6641-.7656 1.3047-2.9922 2.254-6.6836 2.8477-.082.0117-.168-.004-.2383-.047-.168-.0976-.2265-.3085-.125-.4765l.0625-.1054c.504-.8438.957-1.6836 1.3672-2.5235.4766-.9883.9297-2.0508 1.3516-3.1836zM7.797 8.3398c.082-.0117.168.004.2383.047.168.0976.2265.3085.125.4765l-.0625.1054a34.0882 34.0882 0 0 0-1.3672 2.5235c-.4766.9883-.9297 2.0508-1.3516 3.1836a.3528.3528 0 0 1-.4453.211l-.1016-.0352c-3.2617-1.1094-4.5039-2.332-3.7187-3.6641.7656-1.3047 2.9922-2.254 6.6836-2.8477Zm5.2812-3.9843c2.543-2.2227 4.1914-2.664 4.9532-1.332.746 1.3046.4765 3.6718-.8086 7.1093a.3436.3436 0 0 1-.1524.1797c-.164.0938-.375.0352-.4687-.1328l-.0625-.1055c-.4805-.8515-.9805-1.6601-1.5-2.4258-.6133-.9023-1.3047-1.8164-2.0743-2.7421a.3455.3455 0 0 1 .0391-.4844Zm-5.793-2.082c1.4805 0 3.3633 1.4023 5.6485 4.203a.3488.3488 0 0 1 .0781.2188c-.0039.1914-.1562.3438-.3476.3438l-.1172-.004a34.5835 34.5835 0 0 0-2.8086.1016c-1.0742.086-2.1953.2305-3.3633.4375a.343.343 0 0 1-.3945-.2734l-.0196-.0977c-.629-3.2851-.1876-4.9297 1.3242-4.9297Z" />
+        </svg>
+      ),
+    },
+    {
+      label: "React Hook Form",
+      icon: (
+        <svg
+          viewBox="0 0 24 24"
+          width="14"
+          height="14"
+          fill="#EC5990"
+          className="shrink-0"
+        >
+          <path d="M10.7754 17.3477H5.8065a.2815.2815 0 1 0 0 .563h4.9689a.2815.2815 0 1 0 0-.563zm7.3195 0h-4.9688a.2815.2815 0 1 0 0 .563h4.9688a.2815.2815 0 0 0 0-.563zm-7.3336-6.475H5.8065a.2815.2815 0 1 0 0 .563h4.9548a.2815.2815 0 1 0 0-.563zm7.3195 0h-4.9547a.2815.2815 0 1 0 0 .563h4.9547a.2815.2815 0 0 0 0-.563zm.5518-9.2001h-4.341a2.4042 2.4042 0 0 0-4.5804 0H5.3674c-1.7103 0-3.0968 1.3864-3.0968 3.0967v16.134C2.2706 22.6135 3.6571 24 5.3674 24h13.2652c1.7103 0 3.0968-1.3865 3.0968-3.0967V4.7693c0-1.7103-1.3865-3.0967-3.0968-3.0967zm-8.7046.563a.2815.2815 0 0 0 .2815-.2224 1.8411 1.8411 0 0 1 3.5979 0 .2815.2815 0 0 0 .2815.2224h1.5146v1.844a.8446.8446 0 0 1-.8446.8446H9.2552a.8446.8446 0 0 1-.8446-.8446v-1.844Zm11.2383 18.6677c0 1.3993-1.1344 2.5337-2.5337 2.5337H5.3674c-1.3993 0-2.5337-1.1344-2.5337-2.5337V4.7693c0-1.3993 1.1344-2.5337 2.5337-2.5337h2.4802v1.844c0 .7774.6302 1.4076 1.4076 1.4076h5.4896c.7774 0 1.4076-.6302 1.4076-1.4076v-1.844h2.4802c1.3993 0 2.5337 1.1344 2.5337 2.5337z" />
+        </svg>
+      ),
+    },
   ];
 
+  // Duplicated list for seamless infinite loop
+  const marqueeItems = [...marqueeSkills, ...marqueeSkills];
+
   return (
-    <section className="relative z-10 flex min-h-screen items-center overflow-hidden">
+    <section className="relative z-10 flex min-h-[calc(100vh-4.5rem)] lg:min-h-screen items-center justify-center overflow-hidden">
+      {/* Background glow effects */}
       <GlowBackground variant="hero" />
+
+      {/* Subtle central radial ambient glow behind title */}
+      <motion.div
+        animate={
+          shouldReduceMotion
+            ? undefined
+            : { opacity: [0.65, 0.95, 0.65], scale: [0.98, 1.02, 0.98] }
+        }
+        transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 h-[380px] w-[680px] max-w-[90vw] rounded-full bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.13)_0%,rgba(34,211,238,0.05)_45%,transparent_72%)] blur-[54px] opacity-25 dark:opacity-100"
+      />
 
       <Container
         size="wide"
-        className="relative z-10 w-full max-w-[1500px] py-14 sm:py-16 lg:py-12 xl:py-14"
+        className="relative z-10 mx-auto flex w-full max-w-[1000px] flex-col items-center justify-center px-4 py-12 text-center sm:py-16 lg:py-10"
       >
-        <div className="grid items-center gap-12 lg:grid-cols-[minmax(0,0.43fr)_minmax(0,0.57fr)] lg:gap-20 xl:gap-24">
-          <div>
-            {/* Availability badge */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: 0.1 }}
-            >
-              <Badge
-                variant="availability"
-                className="mb-6 inline-flex items-center gap-2"
-              >
-                <span className="w-[6px] h-[6px] rounded-full bg-[#38BDF8] shadow-[0_0_8px_#38BDF8] animate-pulse" />
-                Available for opportunities
-              </Badge>
-            </motion.div>
+        {/* 2. Name: Ahmed Hamdi. - Space Grotesk, font-weight 600 */}
+        <motion.h2
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          className="font-heading font-semibold text-[clamp(22px,3.6vw,36px)] tracking-tight text-slate-900 dark:text-[#F8FAFC] mb-2 sm:mb-3"
+        >
+          Ahmed Hamdi<span className="text-[#38BDF8]">.</span>
+        </motion.h2>
 
-            {/* Headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="absolute top-1/2 left-1/2 h-[130%] w-[118%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(56,189,248,0.055)_0%,transparent_62%)] blur-[36px]" />
-              <h1 className="relative max-w-[620px] text-[clamp(48px,7vw,78px)] font-extrabold leading-[1.08] tracking-[-0.04em] text-[#F8FAFC] mb-4">
-                <span className="block">
-                  Ahmed Hamdi
-                  <em className="text-[#38BDF8] not-italic">.</em>
+        {/* 3. Main Title: Animated Rotating Role ("Full Stack Developer" <-> "Frontend Developer") */}
+        <div className="relative flex items-center justify-center font-heading font-bold tracking-tight text-[clamp(25px,5.4vw,64px)] leading-[1.15] h-[1.25em] min-h-[44px] sm:min-h-[60px] lg:min-h-[76px] mb-5 sm:mb-6 max-w-[960px] mx-auto overflow-hidden w-full select-none">
+          <AnimatePresence mode="wait">
+            {roleIndex === 0 ? (
+              <motion.h1
+                key="full-stack"
+                initial={
+                  shouldReduceMotion
+                    ? false
+                    : hasMounted
+                      ? { opacity: 0, y: 24 }
+                      : { opacity: 0, y: 16 }
+                }
+                animate={{ opacity: 1, y: 0 }}
+                exit={shouldReduceMotion ? undefined : { opacity: 0, y: -24 }}
+                transition={{
+                  duration: hasMounted ? 0.52 : 0.55,
+                  delay: hasMounted ? 0 : 0.32,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="w-full text-center whitespace-normal sm:whitespace-nowrap"
+              >
+                <span className="text-slate-900 dark:text-[#F8FAFC]">Full </span>
+                <span className="bg-gradient-to-r from-[#22D3EE] via-[#38BDF8] to-[#60A5FA] bg-clip-text text-transparent">
+                  Stack{" "}
                 </span>
-                <span className="block bg-gradient-to-r from-[#22D3EE] via-[#38BDF8] to-[#0EA5E9] bg-clip-text text-transparent">
-                  Full Stack
-                </span>
-                <span className="block text-[#F8FAFC]">
+                <span className="bg-gradient-to-r from-[#22D3EE] via-[#38BDF8] to-[#818CF8] bg-clip-text text-transparent">
                   Developer
                 </span>
-              </h1>
-            </motion.div>
-
-            {/* Role */}
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.28 }}
-              className="text-[clamp(17px,2.5vw,24px)] font-light text-[#94A3B8] tracking-[-0.01em] mt-2 mb-5"
-            >
-              React &amp; Next.js <span className="mx-3 text-[#38BDF8]">|</span>
-              Node.js APIs <span className="mx-3 text-[#38BDF8]">|</span>
-              MongoDB
-            </motion.p>
-
-            {/* Subtitle */}
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="text-[15px] text-[#94A3B8] max-w-[560px] leading-[1.78] mb-8"
-            >
-              Building scalable web applications with React, Next.js,
-              TypeScript, Node.js, Express.js, and MongoDB.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.39 }}
-              className="mb-8 flex flex-wrap gap-2"
-            >
-              {stack.map((item) => (
-                <span
-                  key={item.label}
-                  className="group/chip inline-flex items-center gap-2 rounded-[10px] border border-white/[0.08] bg-white/[0.03] px-3.5 py-2 font-mono text-[12px] font-semibold text-[#CBD5E1] transition duration-200 hover:-translate-y-0.5 hover:border-[#38BDF8]/30 hover:bg-[#38BDF8]/[0.055] hover:text-[#F8FAFC]"
-                >
-                  <span className="flex h-5 w-5 items-center justify-center rounded-[6px] border border-[#38BDF8]/18 bg-[#38BDF8]/[0.065] text-[#38BDF8] transition group-hover/chip:border-[#38BDF8]/35">
-                    {item.icon}
-                  </span>
-                  {item.label}
+              </motion.h1>
+            ) : (
+              <motion.h1
+                key="frontend"
+                initial={shouldReduceMotion ? false : { opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={shouldReduceMotion ? undefined : { opacity: 0, y: -24 }}
+                transition={{
+                  duration: 0.52,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className="w-full text-center whitespace-normal sm:whitespace-nowrap"
+              >
+                <span className="text-slate-900 dark:text-[#F8FAFC]">Frontend </span>
+                <span className="bg-gradient-to-r from-[#22D3EE] via-[#38BDF8] to-[#818CF8] bg-clip-text text-transparent">
+                  Developer
                 </span>
-              ))}
-            </motion.div>
-
-            {/* CTAs */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.42 }}
-              className="mb-8 flex flex-wrap items-center gap-[10px]"
-            >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-[#22D3EE] to-[#2563EB] text-[13px] font-bold shadow-[0_16px_34px_rgba(37,99,235,0.18)] hover:scale-[1.02]"
-                asChild
-              >
-                <a href="#projects">
-                  <ChevronRight size={15} /> View Projects
-                </a>
-              </Button>
-              <Button variant="ghost" size="lg" className="text-[13px]" asChild>
-                <a href="/cv.pdf" download>
-                  <Download size={14} /> Download CV
-                </a>
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="text-[13px]"
-                asChild
-              >
-                <a
-                  href={siteConfig.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <Github size={14} /> GitHub
-                </a>
-              </Button>
-              <SocialLinks size="md" className="gap-5" />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.48 }}
-              className="grid max-w-[590px] grid-cols-1 overflow-hidden rounded-[16px] border border-[#38BDF8]/10 bg-[#071222]/46 sm:grid-cols-3"
-            >
-              {stats.map((stat) => (
-                <div
-                  key={stat.label}
-                  className="flex items-center gap-3 px-4 py-4 sm:border-r sm:border-[#38BDF8]/10 last:sm:border-r-0"
-                >
-                  <span className="text-[#22D3EE]/80">{stat.icon}</span>
-                  <div>
-                    <p className="text-[14px] font-bold text-[#67E8F9]">
-                      {stat.value}
-                    </p>
-                    <p className="text-[11px] text-[#CBD5E1]/85">{stat.label}</p>
-                  </div>
-                </div>
-              ))}
-            </motion.div>
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 28, y: 10 }}
-            animate={{ opacity: 1, x: 0, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.48 }}
-            className="relative mx-auto w-full max-w-[920px] lg:mx-0"
-          >
-            <HeroEditorVisual />
-          </motion.div>
+              </motion.h1>
+            )}
+          </AnimatePresence>
         </div>
+
+        {/* 4. Short description: Inter, font-weight 400 - comfortable line height */}
+        <motion.p
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.48, delay: 0.62, ease: [0.22, 1, 0.36, 1] }}
+          className="font-sans font-normal text-[clamp(15px,1.8vw,18px)] text-slate-600 dark:text-[#94A3B8] max-w-[640px] leading-relaxed mb-8"
+        >
+          Building scalable, high-performance web applications with React,
+          Next.js, TypeScript, Nest.js, and modern cloud technologies.{" "}
+        </motion.p>
+
+        {/* 5. CTA Buttons: Inter, font-weight 600 - 740ms delay */}
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.48, delay: 0.74, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 flex flex-wrap items-center justify-center gap-3 font-sans"
+        >
+          {/* Primary CTA */}
+          <Button
+            size="lg"
+            className="h-11 px-6 bg-gradient-to-r from-[#0284C7] to-[#2563EB] text-white font-sans font-semibold text-[14px] shadow-[0_16px_36px_rgba(37,99,235,0.25)] hover:scale-[1.02] transition-transform"
+            asChild
+          >
+            <a href="#projects">
+              <ChevronRight size={16} /> View Projects
+            </a>
+          </Button>
+
+          {/* Secondary CTA */}
+          <Button
+            variant="ghost"
+            size="lg"
+            className="h-11 px-6 border border-slate-200 dark:border-[#38BDF8]/25 bg-white dark:bg-[#38BDF8]/[0.06] font-sans font-semibold text-[14px] text-slate-800 dark:text-[#E0F2FE] hover:bg-slate-50 dark:hover:bg-[#38BDF8]/[0.12] hover:border-sky-300 dark:hover:border-[#38BDF8]/40 transition-colors shadow-xs dark:shadow-none"
+            asChild
+          >
+            <a href="#contact">
+              <Mail size={15} className="text-[#0284C7] dark:text-[#38BDF8]" /> Contact Me
+            </a>
+          </Button>
+
+          {/* Download CV */}
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-11 px-5 font-sans font-medium text-[13px] border-slate-200 dark:border-white/[0.12] bg-white dark:bg-white/[0.02] text-slate-700 dark:text-[#CBD5E1] hover:bg-slate-50 dark:hover:bg-white/[0.06] hover:text-slate-900 dark:hover:text-[#F8FAFC] shadow-xs dark:shadow-none"
+            asChild
+          >
+            <a href="/cv.pdf" download>
+              <Download size={14} /> Download CV
+            </a>
+          </Button>
+
+          {/* GitHub */}
+          <Button
+            variant="outline"
+            size="lg"
+            className="h-11 px-5 font-sans font-medium text-[13px] border-slate-200 dark:border-white/[0.12] bg-white dark:bg-white/[0.02] text-slate-700 dark:text-[#CBD5E1] hover:bg-slate-50 dark:hover:bg-white/[0.06] hover:text-slate-900 dark:hover:text-[#F8FAFC] shadow-xs dark:shadow-none"
+            asChild
+          >
+            <a
+              href={siteConfig.github}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={14} /> GitHub
+            </a>
+          </Button>
+        </motion.div>
+
+        {/* 6. Skills Marquee: seamless loop, hover-pause, starts after buttons */}
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.05, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-8 w-full max-w-[760px] overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+        >
+          <div className="animate-marquee flex gap-2.5 sm:gap-3 py-1">
+            {marqueeItems.map((item, idx) => (
+              <span
+                key={`${item.label}-${idx}`}
+                className="inline-flex shrink-0 items-center gap-2 rounded-full border border-slate-200 dark:border-white/[0.08] bg-white dark:bg-white/[0.03] px-3.5 py-1.5 font-sans text-[12px] font-medium text-slate-700 dark:text-[#CBD5E1] shadow-xs dark:shadow-none transition duration-200 hover:-translate-y-0.5 hover:border-sky-300 dark:hover:border-[#38BDF8]/30 hover:bg-slate-50 dark:hover:bg-[#38BDF8]/[0.06] hover:text-slate-900 dark:hover:text-[#F8FAFC]"
+              >
+                <span className="flex h-4 w-4 items-center justify-center text-[#38BDF8]">
+                  {item.icon}
+                </span>
+                {item.label}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 7. Social Links & Profile details - 950ms delay */}
+        <motion.div
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.45, delay: 0.95 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-4 text-[13px] text-slate-600 dark:text-[#94A3B8]"
+        >
+          <SocialLinks size="md" className="gap-5" />
+          <span className="hidden sm:inline text-slate-300 dark:text-white/20">•</span>
+          <div className="flex items-center gap-3 font-sans font-medium text-[12.5px] text-slate-600 dark:text-[#94A3B8]">
+            <span>Cairo, Egypt</span>
+            <span className="text-slate-300 dark:text-white/20">•</span>
+            <span className="text-[#0284C7] dark:text-[#67E8F9]">2+ Years Exp</span>
+          </div>
+        </motion.div>
 
         {/* Scroll cue */}
         <motion.div
-          initial={{ opacity: 0 }}
+          initial={shouldReduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.4, duration: 0.6 }}
-          className="absolute bottom-10 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 text-[#64748B] lg:flex"
+          transition={{ delay: 1.25, duration: 0.5 }}
+          className="mt-10 hidden flex-col items-center gap-1.5 text-slate-400 dark:text-[#64748B] sm:flex"
         >
-          <span className="text-[11px] tracking-[0.1em] uppercase">Scroll</span>
+          <span className="text-[10px] tracking-[0.14em] uppercase font-sans font-semibold">
+            Scroll
+          </span>
           <motion.div
-            animate={{ y: [0, 6, 0] }}
-            transition={{ repeat: Infinity, duration: 1.5, ease: "easeInOut" }}
+            animate={shouldReduceMotion ? undefined : { y: [0, 4, 0] }}
+            transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
           >
-            <ArrowDown size={14} />
+            <ArrowDown size={13} />
           </motion.div>
         </motion.div>
       </Container>
     </section>
-  );
-}
-
-function HeroEditorVisual() {
-  const cards = [
-    {
-      title: "Frontend",
-      subtitle: "React & Next.js",
-      description: "Responsive and dynamic interfaces",
-      icon: <Monitor size={18} />,
-      position: "lg:top-[94px]",
-      lineTop: 148,
-    },
-    {
-      title: "Backend API",
-      subtitle: "Node.js & Express",
-      description: "RESTful APIs built for performance",
-      icon: <Code2 size={18} />,
-      position: "lg:top-[286px]",
-      lineTop: 340,
-    },
-    {
-      title: "Database",
-      subtitle: "MongoDB",
-      description: "Scalable and secure data storage",
-      icon: <Database size={18} />,
-      position: "lg:top-[478px]",
-      lineTop: 532,
-    },
-  ];
-  const lines = [
-    { text: "// Full Stack Request Flow", tone: "comment" },
-    { text: "", tone: "plain" },
-    { text: "const user = await authenticateUser(token);", tone: "plain" },
-    { text: "", tone: "plain" },
-    { text: "const application = validateApplication({", tone: "plain" },
-    { text: "  workerId: user.id,", tone: "plain" },
-    { text: "  jobId: selectedJob.id,", tone: "plain" },
-    { text: "});", tone: "plain" },
-    { text: "", tone: "plain" },
-    { text: "await saveApplication(application);", tone: "plain", focus: true },
-    { text: "", tone: "plain" },
-    { text: "emitNotification(\"employer\", {", tone: "plain" },
-    { text: "  event: \"new_application\",", tone: "plain" },
-    { text: "  message: \"New worker applied\",", tone: "plain" },
-    { text: "});", tone: "plain" },
-    { text: "", tone: "plain" },
-    { text: "return successResponse({", tone: "plain" },
-    { text: "  status: 201,", tone: "plain" },
-    { text: "  message: \"Application submitted\",", tone: "plain" },
-    { text: "});", tone: "plain" },
-  ];
-
-  return (
-    <div className="relative lg:min-h-[610px] lg:pr-[250px]">
-      <div className="hero-editor-shell rounded-[26px] p-px">
-        <div className="relative overflow-hidden rounded-[25px] border border-[#38BDF8]/16 bg-[#020A14] shadow-[0_26px_82px_rgba(2,6,23,0.40)]">
-          <div className="flex h-10 items-center justify-between border-b border-white/[0.07] bg-[#081322] px-4">
-            <div className="flex items-center gap-2">
-              <span className="h-2 w-2 rounded-full bg-[#F87171]" />
-              <span className="h-2 w-2 rounded-full bg-[#FACC15]" />
-              <span className="h-2 w-2 rounded-full bg-[#22C55E]" />
-            </div>
-            <span className="font-mono text-[16px] leading-none text-[#94A3B8]">
-              ...
-            </span>
-          </div>
-
-          <div className="flex border-b border-white/[0.07] bg-[#07111f] pl-12">
-            {["job.service.ts", "job-application.service.ts"].map(
-              (file, index) => (
-                <div
-                  key={file}
-                  className={`border-r border-white/[0.06] px-3 py-2 font-mono text-[10.5px] ${
-                    index === 1
-                      ? "bg-[#0B1625] text-[#F8FAFC]"
-                      : "text-[#64748B]"
-                  }`}
-                >
-                  {index === 1 && (
-                    <span className="mr-2 rounded-[3px] bg-[#0284C7] px-1 py-0.5 text-[8px] font-bold text-white">
-                      TS
-                    </span>
-                  )}
-                  {file}
-                </div>
-              )
-            )}
-          </div>
-
-          <div className="flex">
-            <div className="hidden w-12 shrink-0 flex-col items-center gap-5 border-r border-white/[0.07] bg-[#081322] py-5 text-[#94A3B8]/85 sm:flex">
-              <Boxes size={16} />
-              <Search size={16} />
-              <GitBranch size={16} />
-              <Settings size={16} />
-            </div>
-
-            <div className="relative min-w-0 flex-1 overflow-hidden bg-[#020A14]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_18%_0%,rgba(56,189,248,0.06),transparent_36%)]" />
-              <pre className="relative h-[475px] overflow-hidden py-7 pr-6 font-mono text-[13px] leading-[1.65] text-[#CBD5E1]">
-                {lines.map((line, index) => (
-                  <div
-                    key={`${line.text}-${index}`}
-                    className={`hero-code-line grid grid-cols-[52px_minmax(0,1fr)] px-5 ${
-                      line.focus ? "hero-code-focus" : ""
-                    }`}
-                  >
-                    <span className="select-none pr-4 text-right text-[#64748B]">
-                      {index + 1}
-                    </span>
-                    <code className="whitespace-pre-wrap">
-                      <CodeLine text={line.text} tone={line.tone} />
-                    </code>
-                  </div>
-                ))}
-              </pre>
-            </div>
-          </div>
-
-          <div className="flex h-8 items-center justify-between border-t border-[#38BDF8]/16 bg-[#075985]/36 px-4 font-mono text-[10px] text-[#DFF6FF]/90">
-            <div className="flex items-center gap-3">
-              <span>main</span>
-              <span>0 errors</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <span>Ln 10, Col 26</span>
-              <span>UTF-8</span>
-              <span>TypeScript</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="pointer-events-none hidden lg:block">
-        {cards.map((card) => (
-          <svg
-            key={card.title}
-            className="absolute right-[206px] h-10 w-[56px] overflow-visible text-[#22D3EE]/28"
-            style={{ top: card.lineTop - 18 }}
-            viewBox="0 0 56 40"
-            aria-hidden="true"
-          >
-            <path
-              d="M0 20 C18 20 22 8 38 8 C46 8 50 20 56 20"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              strokeDasharray="3 5"
-              strokeLinecap="round"
-            />
-            <circle
-              cx="56"
-              cy="20"
-              r="3"
-              fill="currentColor"
-              className="drop-shadow-[0_0_7px_rgba(34,211,238,0.35)]"
-            />
-          </svg>
-        ))}
-      </div>
-
-      <div className="mt-5 grid gap-4 sm:grid-cols-3 lg:mt-0 lg:block">
-        {cards.map((card) => (
-          <div
-            key={card.title}
-            className={`hero-info-card rounded-[16px] border border-[#38BDF8]/14 bg-[#071222]/76 p-4 shadow-[0_16px_38px_rgba(2,6,23,0.24)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-[#38BDF8]/26 lg:absolute lg:right-0 lg:w-[198px] ${card.position}`}
-          >
-            <div className="mb-3 flex items-center gap-3">
-              <span className="flex h-9 w-9 items-center justify-center rounded-[10px] border border-[#38BDF8]/16 bg-[#38BDF8]/[0.06] text-[#7DD3FC]/90">
-                {card.icon}
-              </span>
-              <h3 className="text-[14px] font-bold text-[#F8FAFC]">
-                {card.title}
-              </h3>
-            </div>
-            <p className="mb-2 text-[12px] font-semibold text-[#22D3EE]/90">
-              {card.subtitle}
-            </p>
-            <p className="text-[12px] leading-relaxed text-[#CBD5E1]/90">
-              {card.description}
-            </p>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
-
-function CodeLine({ text, tone }: { text: string; tone: string }) {
-  if (!text) return null;
-  if (tone === "comment") {
-    return <span className="text-[#7CB342]">{text}</span>;
-  }
-
-  return (
-    <>
-      {text
-        .split(/(const|await|return|authenticateUser|validateApplication|saveApplication|emitNotification|successResponse|"employer"|"new_application"|"New worker applied"|"Application submitted"|201|token|user|selectedJob|application|workerId|jobId|event|status|message)/g)
-        .map((part, index) => {
-          const className =
-            part === "const" || part === "await" || part === "return"
-              ? "text-[#C084FC]"
-              : [
-                  "authenticateUser",
-                  "validateApplication",
-                  "saveApplication",
-                  "emitNotification",
-                  "successResponse",
-                ].includes(part)
-              ? "text-[#FACC15]"
-              : [
-                  "\"employer\"",
-                  "\"new_application\"",
-                  "\"New worker applied\"",
-                  "\"Application submitted\"",
-                  "201",
-                ].includes(part)
-              ? "text-[#FB7185]"
-              : [
-                  "token",
-                  "user",
-                  "selectedJob",
-                  "application",
-                  "workerId",
-                  "jobId",
-                  "event",
-                  "status",
-                  "message",
-                ].includes(part)
-              ? "text-[#67E8F9]"
-              : "text-[#CBD5E1]";
-
-          return (
-            <span key={`${part}-${index}`} className={className}>
-              {part}
-            </span>
-          );
-        })}
-    </>
   );
 }

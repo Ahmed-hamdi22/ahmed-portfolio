@@ -27,7 +27,7 @@ const availRows = [
 
 export function Contact() {
   return (
-    <section id="contact" className="relative z-10 py-[76px] border-t border-white/[0.07]">
+    <section id="contact" className="relative z-10 py-[76px] border-t border-slate-200 dark:border-white/[0.07]">
       <Container>
         <SectionHeader
           eyebrow="Contact"
@@ -38,11 +38,11 @@ export function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Contact card */}
           <FadeUp delay={0.1}>
-            <Card className="relative shadow-[0_8px_40px_rgba(0,0,0,0.2)] overflow-hidden">
+            <Card className="relative shadow-sm dark:shadow-[0_8px_40px_rgba(0,0,0,0.2)] overflow-hidden">
               <GlowBackground variant="card" />
               <CardContent className="p-[30px]">
-                <h3 className="text-[17px] font-bold text-[#F8FAFC] tracking-[-0.025em] mb-2">Get in touch</h3>
-                <p className="text-[13px] text-[#94A3B8] leading-[1.7] mb-6">
+                <h3 className="text-[17px] font-bold text-slate-900 dark:text-[#F8FAFC] tracking-[-0.025em] mb-2">Get in touch</h3>
+                <p className="text-[13px] text-slate-600 dark:text-[#94A3B8] leading-[1.7] mb-6">
                   Have a project or opportunity in mind? Reach out through any channel below.
                 </p>
 
@@ -53,18 +53,18 @@ export function Contact() {
                       href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-[15px] py-[13px] rounded-[11px] bg-white/[0.02] border border-white/[0.07] no-underline transition-all duration-200 hover:border-[rgba(56,189,248,0.2)] hover:bg-[rgba(56,189,248,0.04)] group"
+                      className="flex items-center gap-3 px-[15px] py-[13px] rounded-[11px] bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.07] no-underline transition-all duration-200 hover:border-sky-300 dark:hover:border-[rgba(56,189,248,0.2)] hover:bg-sky-50/50 dark:hover:bg-[rgba(56,189,248,0.04)] group"
                       whileHover={{ x: 2 }}
                       transition={{ type: "spring", stiffness: 400, damping: 25 }}
                     >
-                      <div className="w-[34px] h-[34px] rounded-[9px] shrink-0 flex items-center justify-center bg-[rgba(56,189,248,0.08)] border border-[rgba(56,189,248,0.12)] text-[#38BDF8]">
+                      <div className="w-[34px] h-[34px] rounded-[9px] shrink-0 flex items-center justify-center bg-sky-50 dark:bg-[rgba(56,189,248,0.08)] border border-sky-200 dark:border-[rgba(56,189,248,0.12)] text-[#0284C7] dark:text-[#38BDF8]">
                         <Icon size={15} />
                       </div>
                       <div className="flex-1 min-w-0">
-                        <div className="text-[10px] text-[#64748B] uppercase tracking-[0.07em] font-bold mb-[2px]">{label}</div>
-                        <div className="text-[12px] text-[#F8FAFC] truncate">{value}</div>
+                        <div className="text-[10px] text-slate-500 dark:text-[#64748B] uppercase tracking-[0.07em] font-bold mb-[2px]">{label}</div>
+                        <div className="text-[12px] text-slate-900 dark:text-[#F8FAFC] truncate">{value}</div>
                       </div>
-                      <ArrowUpRight size={13} className="text-[#64748B] shrink-0" />
+                      <ArrowUpRight size={13} className="text-slate-400 dark:text-[#64748B] shrink-0 group-hover:text-[#0284C7] dark:group-hover:text-[#38BDF8] transition-colors" />
                     </motion.a>
                   ))}
                 </div>
@@ -74,19 +74,19 @@ export function Contact() {
 
           {/* CTA card */}
           <FadeUp delay={0.2}>
-            <Card className="shadow-[0_8px_40px_rgba(0,0,0,0.2)] flex flex-col">
+            <Card className="shadow-sm dark:shadow-[0_8px_40px_rgba(0,0,0,0.2)] flex flex-col">
               <CardContent className="p-[30px] flex flex-col h-full">
-                <h3 className="text-[17px] font-bold text-[#F8FAFC] tracking-[-0.025em] mb-2">Open to opportunities</h3>
-                <p className="text-[13px] text-[#94A3B8] leading-[1.75] mb-6">
+                <h3 className="text-[17px] font-bold text-slate-900 dark:text-[#F8FAFC] tracking-[-0.025em] mb-2">Open to opportunities</h3>
+                <p className="text-[13px] text-slate-600 dark:text-[#94A3B8] leading-[1.75] mb-6">
                   Based in Cairo, Egypt - available for remote roles globally, hybrid, or onsite.
                 </p>
 
                 {/* Availability grid */}
                 <div className="grid grid-cols-2 gap-[10px] mb-6">
                   {availRows.map(({ label, value }) => (
-                    <div key={label} className="p-[14px] bg-white/[0.02] border border-white/[0.07] rounded-[10px]">
-                      <div className="text-[10px] text-[#64748B] uppercase tracking-[0.06em] font-bold mb-1">{label}</div>
-                      <div className="text-[13px] text-[#F8FAFC] font-bold">{value}</div>
+                    <div key={label} className="p-[14px] bg-slate-50 dark:bg-white/[0.02] border border-slate-200 dark:border-white/[0.07] rounded-[10px]">
+                      <div className="text-[10px] text-slate-500 dark:text-[#64748B] uppercase tracking-[0.06em] font-bold mb-1">{label}</div>
+                      <div className="text-[13px] text-slate-900 dark:text-[#F8FAFC] font-bold">{value}</div>
                     </div>
                   ))}
                 </div>
@@ -108,9 +108,9 @@ export function Contact() {
                 </div>
 
                 {/* Status */}
-                <div className="flex items-center gap-[9px] mt-4 px-[15px] py-3 rounded-[10px] bg-[rgba(52,211,153,0.05)] border border-[rgba(52,211,153,0.14)]">
-                  <span className="w-[7px] h-[7px] rounded-full bg-[#34D399] shadow-[0_0_8px_rgba(52,211,153,0.5)] shrink-0 animate-pulse" />
-                  <span className="text-[12px] text-[#34D399] font-semibold">Available for work right now</span>
+                <div className="flex items-center gap-[9px] mt-4 px-[15px] py-3 rounded-[10px] bg-emerald-50 dark:bg-[rgba(52,211,153,0.05)] border border-emerald-200 dark:border-[rgba(52,211,153,0.14)]">
+                  <span className="w-[7px] h-[7px] rounded-full bg-[#059669] dark:bg-[#34D399] shadow-[0_0_8px_rgba(5,150,105,0.4)] dark:shadow-[0_0_8px_rgba(52,211,153,0.5)] shrink-0 animate-pulse" />
+                  <span className="text-[12px] text-[#059669] dark:text-[#34D399] font-semibold">Available for work right now</span>
                 </div>
               </CardContent>
             </Card>

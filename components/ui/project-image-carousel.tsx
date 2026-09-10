@@ -65,22 +65,21 @@ export function ProjectImageCarousel({
   return (
     <div
       className={cn(
-        "group/image relative h-full min-h-[190px] overflow-hidden rounded-[18px] border border-white/[0.10] bg-[#020617] shadow-[0_18px_44px_rgba(2,6,23,0.32)]",
-        isFeatured && "min-h-[220px]",
+        "group/image relative h-full min-h-[155px] sm:min-h-[165px] overflow-hidden rounded-[14px] border border-slate-200 dark:border-white/[0.08] bg-slate-100 dark:bg-[#020617] shadow-sm dark:shadow-[0_12px_32px_rgba(2,6,23,0.32)]",
         className
       )}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
     >
       <div
-        className="absolute inset-0 opacity-70"
+        className="absolute inset-0 opacity-70 hidden dark:block"
         style={{
           background:
             "linear-gradient(135deg, rgba(56,189,248,0.10), transparent 42%), linear-gradient(180deg, #06111f 0%, #020617 100%)",
         }}
       />
 
-      <div className="absolute inset-[10px] overflow-hidden rounded-[14px] border border-white/[0.08] bg-[#0B1120]">
+      <div className="absolute inset-[6px] overflow-hidden rounded-[10px] border border-slate-200 dark:border-white/[0.08] bg-white dark:bg-[#0B1120]">
         {hasImages ? (
           <AnimatePresence mode="wait">
             <motion.div
@@ -118,13 +117,13 @@ export function ProjectImageCarousel({
                 background: `linear-gradient(90deg, transparent, ${accent}, transparent)`,
               }}
             />
-            <p className="max-w-[220px] text-[12px] font-semibold uppercase tracking-[0.12em] text-[#94A3B8]">
+            <p className="max-w-[220px] text-[12px] font-semibold uppercase tracking-[0.12em] text-slate-500 dark:text-[#94A3B8]">
               Project preview unavailable
             </p>
           </div>
         )}
 
-        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-[#020617]/55" />
+        <div className="absolute inset-0 pointer-events-none bg-gradient-to-b from-transparent via-transparent to-black/10 dark:to-[#020617]/55" />
       </div>
 
       {canSlide && (
@@ -133,7 +132,7 @@ export function ProjectImageCarousel({
             type="button"
             aria-label={`Show previous ${title} screenshot`}
             onClick={goToPrevious}
-            className="absolute left-4 top-1/2 z-20 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.12] bg-[#020617]/70 text-[#CBD5E1] backdrop-blur transition hover:border-[#38BDF8]/40 hover:text-[#38BDF8] sm:flex"
+            className="absolute left-4 top-1/2 z-20 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 dark:border-white/[0.12] bg-white/90 dark:bg-[#020617]/70 text-slate-700 dark:text-[#CBD5E1] shadow-xs backdrop-blur transition hover:border-[#0284C7] dark:hover:border-[#38BDF8]/40 hover:text-[#0284C7] dark:hover:text-[#38BDF8] sm:flex"
           >
             <ChevronLeft size={15} />
           </button>
@@ -141,12 +140,12 @@ export function ProjectImageCarousel({
             type="button"
             aria-label={`Show next ${title} screenshot`}
             onClick={goToNext}
-            className="absolute right-4 top-1/2 z-20 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-white/[0.12] bg-[#020617]/70 text-[#CBD5E1] backdrop-blur transition hover:border-[#38BDF8]/40 hover:text-[#38BDF8] sm:flex"
+            className="absolute right-4 top-1/2 z-20 hidden h-8 w-8 -translate-y-1/2 items-center justify-center rounded-full border border-slate-200 dark:border-white/[0.12] bg-white/90 dark:bg-[#020617]/70 text-slate-700 dark:text-[#CBD5E1] shadow-xs backdrop-blur transition hover:border-[#0284C7] dark:hover:border-[#38BDF8]/40 hover:text-[#0284C7] dark:hover:text-[#38BDF8] sm:flex"
           >
             <ChevronRight size={15} />
           </button>
 
-          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-white/[0.08] bg-[#020617]/70 px-2.5 py-1.5 backdrop-blur">
+          <div className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 items-center gap-1.5 rounded-full border border-slate-200 dark:border-white/[0.08] bg-white/90 dark:bg-[#020617]/70 px-2.5 py-1.5 backdrop-blur shadow-xs">
             {availableImages.map((image, index) => (
               <button
                 key={image}
@@ -155,7 +154,7 @@ export function ProjectImageCarousel({
                 onClick={() => setActiveIndex(index)}
                 className={cn(
                   "h-1.5 rounded-full transition-all",
-                  index === activeIndex ? "w-5 bg-[#38BDF8]" : "w-1.5 bg-white/35"
+                  index === activeIndex ? "w-5 bg-[#0284C7] dark:bg-[#38BDF8]" : "w-1.5 bg-slate-400/50 dark:bg-white/35"
                 )}
               />
             ))}
