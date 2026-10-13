@@ -1,31 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import { siteConfig } from "@/lib/data";
+import { PortfolioProvider } from "@/components/providers/PortfolioProvider";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-inter",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  display: "swap",
-  variable: "--font-space-grotesk",
-});
-
-const jetBrainsMono = JetBrains_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  display: "swap",
-  variable: "--font-jetbrains-mono",
-});
-
 const description =
-  "Ahmed Hamdi is a Full Stack Developer building scalable web applications with React, Next.js, TypeScript, Node.js, Express.js, MongoDB, and REST APIs.";
+  "Ahmed Hamdi is a Full Stack, MERN Stack, and Frontend Developer building scalable web applications with React, Next.js, TypeScript, Node.js, Express.js, and MongoDB.";
 
 export const metadata: Metadata = {
   title: `${siteConfig.name} - ${siteConfig.title}`,
@@ -34,6 +13,8 @@ export const metadata: Metadata = {
     siteConfig.name,
     siteConfig.title,
     "Full Stack Developer",
+    "MERN Stack Developer",
+    "Frontend Developer",
     "React Developer",
     "Next.js Developer",
     "Node.js Developer",
@@ -70,25 +51,24 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" dir="ltr" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{
             __html: `
               try {
-                var theme = localStorage.getItem("theme") || "dark";
+                var theme = localStorage.getItem("theme") || "light";
                 document.documentElement.classList.toggle("dark", theme === "dark");
+                document.documentElement.style.colorScheme = theme === "dark" ? "dark" : "light";
               } catch (_) {
-                document.documentElement.classList.add("dark");
+                document.documentElement.classList.remove("dark");
               }
             `,
           }}
         />
       </head>
-      <body
-        className={`${inter.variable} ${spaceGrotesk.variable} ${jetBrainsMono.variable} relative font-sans`}
-      >
-        {children}
+      <body className="v1" suppressHydrationWarning>
+        <PortfolioProvider>{children}</PortfolioProvider>
       </body>
     </html>
   );

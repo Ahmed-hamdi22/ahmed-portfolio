@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Ahmed Hamdi",
-  title: "Full Stack Developer",
+  title: "Full Stack, MERN Stack & Frontend Developer",
   subtitle:
     "Building scalable web applications from UI to API with React, Next.js, TypeScript, Node.js, Express.js, and MongoDB.",
   email: "ahmed255hamdi@gmail.com",
@@ -9,7 +9,7 @@ export const siteConfig = {
   github: "https://github.com/Ahmed-hamdi22",
   linkedin: "https://linkedin.com/in/ahmed-hamdi-86ab2b23a",
   about:
-    "I'm Ahmed Hamdi, a Full Stack Developer focused on React, Next.js, TypeScript, Node.js, Express.js, and MongoDB. I build responsive interfaces, integrate APIs, implement authentication flows, and develop maintainable full-stack applications.",
+    "I'm Ahmed Hamdi, a Full Stack, MERN Stack, and Frontend Developer focused on React, Next.js, TypeScript, Node.js, Express.js, and MongoDB. I build responsive interfaces, integrate APIs, implement authentication flows, and develop maintainable full-stack applications.",
 };
 
 export const skills = {
@@ -20,16 +20,22 @@ export const skills = {
       "Next.js",
       "TypeScript",
       "JavaScript (ES6+)",
-      "HTML5",
-      "CSS3",
+      "HTML",
+      "CSS",
+      "Sass CSS",
       "Tailwind CSS",
-      "Shadcn/UI",
+      "shadcn/ui",
+      "MUI",
       "Bootstrap",
-      "TanStack Query",
+      "jQuery",
+      "React Query (TanStack Query)",
+      "Zustand",
       "Context API",
       "Redux",
       "React Hook Form",
       "Zod",
+      "Formik",
+      "Yup",
       "next-intl",
       "NextAuth",
     ],
@@ -44,15 +50,16 @@ export const skills = {
   },
   "Tools & Workflow": {
     color: "#818CF8",
-    tags: ["Git", "GitHub", "Agile/Scrum", "CI/CD", "Docker"],
+    tags: ["Git", "GitHub", "Jira", "Scrum", "Agile", "CI/CD", "Docker", "Figma"],
   },
+  Languages: { color: "#38BDF8", tags: ["C++"] },
 };
 
 export const experience = [
   {
     role: "Full Stack Developer",
     company: "SooqKasem — Freelance",
-    period: "2025 – 2026",
+    period: "Jul – Aug 2026",
     location: "Remote",
     description: `A full-stack Arabic grocery e-commerce platform built end-to-end with a focus on real-world business workflows and seamless UX:
 
@@ -74,7 +81,7 @@ Business Intelligence: Developed a role-based admin dashboard with real-time sal
   {
     role: "Full Stack Developer",
     company: "imam abdulrahman bin faisal university ",
-    period: "2026",
+    period: "Mar – Aug 2026",
     location: "Remote",
     description: `A production-grade, multi-tenant SaaS platform built for Imam Abdulrahman Bin Faisal University (IAU) to unify departmental project tracking and governance:
 
@@ -114,7 +121,7 @@ export const certifications = [
   {
     title: "Frontend Development Diploma",
     provider: "Route Academy",
-    period: "Nov 2024 – Jun 2025",
+    period: "Dec 2023 – Jun 2024",
     location: "Cairo, Egypt",
     description:
       "Intensive frontend development diploma covering modern frontend engineering, component architecture, state management, authentication, form validation, and responsive UI implementation.",
@@ -132,7 +139,7 @@ export const certifications = [
   {
     title: "Full Stack Track Trainee",
     provider: "Digilians",
-    period: "2026",
+    period: "Jan – Jun 2026",
     location: "Cairo, Egypt",
     description:
       "Intensive full stack development track focused on backend API development, MongoDB database modeling, Express.js architecture, and React ecosystem tools through project-based learning.",
@@ -160,6 +167,7 @@ export type ProjectColor = "blue" | "green" | "purple" | "orange";
 
 export interface ProjectItem {
   title: string;
+  summary: string;
   description: string;
   tags: string[];
   github?: string;
@@ -173,6 +181,7 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   {
     title: "SooqKasem —  E-Commerce Platform",
+    summary: "Arabic grocery storefront with guest-to-account cart sync, loyalty rewards, WhatsApp checkout, and an admin dashboard.",
     description: `A full-stack Arabic grocery e-commerce platform built end-to-end with a focus on real-world business workflows and seamless UX:
 
 Dual-Mode Cart Architecture: Built an offline-first guest cart using Zustand, automatically syncing with MongoDB on user authentication.
@@ -202,6 +211,7 @@ Business Intelligence: Developed a role-based admin dashboard with real-time sal
   },
   {
     title: "Project Tracker & Team Governance Platform",
+    summary: "Multi-tenant project workspace with role-based access, live collaboration, Kanban, calendar, timelines, and analytics.",
     description: `A production-grade, multi-tenant SaaS platform built for Imam Abdulrahman Bin Faisal University (IAU) to unify departmental project tracking and governance:
 
 Multi-Tenant Architecture & RBAC: Enforced strict workspace tenant isolation with a two-tier role hierarchy (System Manager platform oversight vs. Workspace Owner/Admin/Member).
@@ -231,6 +241,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Sanda — Recruitment & Job Management Platform",
+    summary: "Recruitment marketplace connecting employers and applicants through job listings, application tracking, and live updates.",
     description:
       "Full-stack workforce marketplace connecting employers and applicants with job postings, application tracking, real-time notifications via Socket.io, and secure authentication.",
     tags: [
@@ -257,8 +268,9 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Flower Shop E-Commerce & Admin Dashboard",
+    summary: "Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.",
     description:
-      "Full e-commerce platform with product & category management, Stripe checkout, sales analytics visualization, and multilingual support via next-intl.",
+      "Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.",
     tags: [
       "Next.js 14",
       "TypeScript",
@@ -272,7 +284,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
     demo: "https://e-commerce-flower-shop-ulqj.vercel.app/en",
     accent: "#38BDF8",
     color: "blue",
-    type: "Full Stack Project",
+    type: "Frontend Project",
     images: [
       "/images/flower-shop-1.png",
       "/images/flower-shop-2.png",
@@ -281,6 +293,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Super Fitness Web App",
+    summary: "Fitness experience for discovering workout plans, healthy recipes, and structured training sessions.",
     description:
       "Multilingual fitness platform allowing users to explore structured workout routines by difficulty level, browse healthy recipes, and track training sessions.",
     tags: [
@@ -304,6 +317,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Online Exam Platform",
+    summary: "Timed online assessments with authentication, immediate results, and multilingual support.",
     description:
       "Interactive exam application with timer-based assessment sessions, real-time result calculations, NextAuth authentication, and multi-language support.",
     tags: [
@@ -327,6 +341,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "FreshCart E-Commerce",
+    summary: "Shopping experience with product filtering, wishlist, live cart updates, authentication, and Stripe checkout.",
     description:
       "Modern shopping platform featuring user authentication, real-time cart with quantity control, Stripe checkout, wishlist, and product filtering.",
     tags: [
