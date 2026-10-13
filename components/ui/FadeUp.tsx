@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import { useEffect, useRef, type ReactNode } from "react";
 
 interface FadeUpProps {
   children: ReactNode;
@@ -11,17 +11,26 @@ interface FadeUpProps {
 }
 
 export function  FadeUp({ children, delay = 0, className, style }: FadeUpProps) {
+  const reduceMotion = useReducedMotion();
+  const element = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const node = element.current;
+    if (!node || reduceMotion) return;
+    const observer = new IntersectionObserver(entries => {
+      if (!entries[0].isIntersecting) return;
+      observer.unobserve(node);
+      node.animate?.([{ opacity: 0, translate: "0 16px" }, { opacity: 1, translate: "0 0" }], { duration: 550, delay: delay * 1000, easing: "cubic-bezier(.22,1,.36,1)", fill: "backwards" });
+    }, { threshold: .08, rootMargin: "0px 0px -24px 0px" });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [delay, reduceMotion]);
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 24 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-60px" }}
-      transition={{ duration: 0.45, delay, ease: [0.22, 1, 0.36, 1] }}
+    <div ref={element}
       className={className}
       style={style}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
