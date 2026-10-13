@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { siteConfig } from "@/lib/data";
 import { PortfolioProvider } from "@/components/providers/PortfolioProvider";
 import "./globals.css";
+import "./production.css";
 
 const description =
   "Ahmed Hamdi is a Full Stack, MERN Stack, and Frontend Developer building scalable web applications with React, Next.js, TypeScript, Node.js, Express.js, and MongoDB.";
@@ -32,15 +33,13 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     title: `${siteConfig.name} - ${siteConfig.title}`,
-    description:
-      "Full Stack Developer building scalable web applications from UI to API.",
+    description,
     siteName: `${siteConfig.name} Portfolio`,
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} - ${siteConfig.title}`,
-    description:
-      "Full Stack Developer building scalable web applications from UI to API.",
+    description,
   },
   robots: { index: true, follow: true },
 };

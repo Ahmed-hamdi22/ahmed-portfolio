@@ -7,22 +7,25 @@ import { Experience } from "@/components/sections/Experience";
 import { Certifications } from "@/components/sections/Certifications";
 import { Projects } from "@/components/sections/Projects";
 import { Contact } from "@/components/sections/Contact";
+import { FloatingWhatsApp } from "@/components/ui/floating-whatsapp";
+import { SkipLink } from "@/components/ui/skip-link";
 
 export default function Home() {
   return (
     <>
+      <SkipLink/>
       <Navbar />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
+        <Skills />
         <Projects />
         <Experience />
-
         <About />
-        <Skills />
         <Certifications />
         <Contact />
       </main>
       <Footer />
+      <FloatingWhatsApp/>
     </>
   );
 }
