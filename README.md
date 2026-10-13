@@ -13,7 +13,7 @@ Use Node.js 20 or newer. Install the locked dependencies with `yarn install --fr
 - `npm run build` creates the production build.
 - `npm start` serves that build.
 
-Vercel can use its standard Next.js preset and the committed Yarn lockfile. All image/icon assets are in `public`; no preview-folder paths or remote icon CDNs are needed.
+Vercel can use its standard Next.js preset and the committed Yarn lockfile. Technology icons come from React Icons, with local SVG fallbacks for unavailable logos. Images and fallback icons are in `public`; no preview-folder paths or remote icon CDNs are needed.
 
 ## Content
 

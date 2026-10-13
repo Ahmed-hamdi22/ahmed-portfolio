@@ -6,8 +6,8 @@ const vm = require('node:vm');
 const ts = require('typescript');
 const root = path.resolve(__dirname, '..');
 function load(relative) {
-  const context = {exports: {}, URL};
-  vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(root,relative),'utf8'), {compilerOptions:{module:ts.ModuleKind.CommonJS}}).outputText, context);
+  const context = {exports: {}, URL, require: (id) => id === '@/lib/technologies' ? load('lib/technologies.ts') : require(id)};
+  vm.runInNewContext(ts.transpileModule(fs.readFileSync(path.join(root,relative),'utf8'), {compilerOptions:{module:ts.ModuleKind.CommonJS, jsx:ts.JsxEmit.ReactJSX}}).outputText, context);
   return context.exports;
 }
 const data = load('lib/data.ts');
@@ -40,12 +40,20 @@ test('CV dates and Flower Shop scope match the approved content', () => {
   assert.equal(flower.summary,'Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.');
   assert.equal(flower.summary,flower.description); assert.equal(flower.type,'Frontend Project');
 });
-test('all project images, technology icons and the CV ship locally', () => {
+test('all project images, technology icons and the CV render without remote assets', () => {
   for(const project of data.projects) for(const image of project.images) assert.ok(fs.existsSync(path.join(root,'public',image)), image);
   const {technologies} = load('lib/technologies.ts');
   assert.equal(new Set(technologies.map(([name])=>name)).size, technologies.length);
   assert.equal(technologies.some(([name])=>name==='GraphQL'), false);
-  for(const [name,slug] of technologies) assert.ok(fs.readFileSync(path.join(root,'public/icons',`tech-${slug}.svg`),'utf8').includes('<svg'),name);
+  const {TechnologyIcon} = load('components/ui/technology-icon.tsx');
+  const {renderToStaticMarkup} = require('react-dom/server');
+  for(const [name,slug] of technologies) {
+    const markup = renderToStaticMarkup(TechnologyIcon({slug}));
+    if(markup.includes('<img')) {
+      assert.ok(fs.readFileSync(path.join(root,'public/icons',`tech-${slug}.svg`),'utf8').includes('<svg'),name);
+    } else assert.ok(markup.includes('<svg'),name);
+    assert.ok(!markup.includes('src="http'),name);
+  }
   for(const name of ['Sass CSS','Bootstrap','jQuery','C++','HTML','CSS','Jira','Scrum','Figma']) assert.ok(technologies.some(([label])=>label===name),name);
   assert.ok(fs.existsSync(path.join(root,'public/cv.pdf')));
 });

@@ -5,6 +5,9 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    optimizePackageImports: ["react-icons/si", "react-icons/fi"],
+  },
   outputFileTracingRoot: projectRoot,
   turbopack: {
     root: projectRoot,

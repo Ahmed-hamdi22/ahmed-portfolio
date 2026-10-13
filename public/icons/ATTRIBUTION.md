@@ -1,4 +1,3 @@
-Technology brand SVGs are from Simple Icons (CC0): https://simpleicons.org/
-Interface and workflow SVGs are rendered from the installed lucide-react package (ISC): https://lucide.dev/license
-Zustand and Yup use custom letter monograms rather than official logos.
+Technology icons use React Icons (https://react-icons.github.io/react-icons/): Simple Icons brand marks (CC0) and the Feather refresh icon for Scrum (MIT).
+Only Zustand and Yup retain local SVG letter monograms because their logos are unavailable in the installed React Icons package.
 No external CDN is needed at runtime.
