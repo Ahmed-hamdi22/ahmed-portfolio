@@ -1,57 +1,11 @@
 "use client";
-
-import { Github, ExternalLink } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { SectionHeader } from "@/components/ui/section-header";
-import { ProjectCard } from "@/components/ui/project-card";
-import { Container } from "@/components/ui/container";
-import { GlowBackground } from "@/components/ui/glow-background";
+import { useState } from "react";
+import { usePortfolio } from "@/components/providers/PortfolioProvider";
 import { FadeUp } from "@/components/ui/FadeUp";
+import { ProjectCard } from "@/components/ui/project-card";
 import { projects } from "@/lib/data";
-
 export function Projects() {
-  const [featuredProject, ...otherProjects] = projects;
-
-  return (
-    <section
-      id="projects"
-      className="relative py-14 sm:py-16 border-t border-slate-200 dark:border-white/[0.07]"
-      style={{ background: "var(--section-alt-bg)" }}
-    >
-      <GlowBackground variant="section" />
-      <Container className="relative z-10">
-        <SectionHeader
-          eyebrow="Selected Projects"
-          title="Things I've built"
-          subtitle="A curated selection of full-stack and frontend web applications with verified live demos and responsive architecture."
-          className="mb-8 sm:mb-10"
-        />
-
-        {featuredProject && (
-          <div className="mb-4 sm:mb-5">
-            <ProjectCard {...featuredProject} index={0} isFeatured />
-          </div>
-        )}
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
-          {otherProjects.map((project, i) => (
-            <ProjectCard key={project.title} {...project} index={i + 1} />
-          ))}
-        </div>
-
-        {/* More on GitHub */}
-        <FadeUp delay={0.3}>
-          <div className="mt-8 sm:mt-10 text-center">
-            <Button variant="outline" className="gap-2 font-sans text-[12px]" asChild>
-              <a href="https://github.com/Ahmed-hamdi22" target="_blank" rel="noopener noreferrer">
-                <Github size={14} />
-                View more on GitHub
-                <ExternalLink size={12} />
-              </a>
-            </Button>
-          </div>
-        </FadeUp>
-      </Container>
-    </section>
-  );
+  const { t } = usePortfolio();
+  const [layout, setLayout] = useState<"rows" | "featured">("rows");
+  return <section id="projects" className="projects section" data-project-view={layout} aria-labelledby="projects-heading"><div className="project-heading-row"><FadeUp className="section-heading"><span className="eyebrow">{t("selectedProjects")}</span><h2 id="projects-heading">{t("built")}</h2></FadeUp><div className="project-view-controls" role="group" aria-label={t("layout")}><button type="button" className={layout === "featured" ? "active" : ""} aria-pressed={layout === "featured"} onClick={() => setLayout("featured")}>{t("featured")}</button><button type="button" className={layout === "rows" ? "active" : ""} aria-pressed={layout === "rows"} onClick={() => setLayout("rows")}>{t("compact")}</button></div></div><div className="project-list">{projects.map((project,index) => <ProjectCard key={project.title} {...project} index={index}/>)}</div></section>;
 }
