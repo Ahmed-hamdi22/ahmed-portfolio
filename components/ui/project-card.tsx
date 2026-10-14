@@ -6,9 +6,10 @@ import { arabicProjectSummaries, isolateLatin } from "@/lib/i18n";
 import { getProjectLinks } from "@/lib/project-links";
 import type { ProjectItem } from "@/lib/data";
 import { ProjectImageCarousel } from "./project-image-carousel";
-export function ProjectCard({ index, ...project }: ProjectItem & { index: number }) {
+export function ProjectCard({ index, layout, ...project }: ProjectItem & { index: number; layout: "rows" | "featured" }) {
   const { t, language } = usePortfolio();
-  const ref = useReveal<HTMLElement>((index % 3) * .07);
+  const fromImageSide = (index % 2 === 0) === (language === "ar") ? "right" : "left";
+  const ref = useReveal<HTMLElement>((index % 3) * .07, layout === "rows" ? fromImageSide : "up");
   const links = getProjectLinks(project);
   return <article ref={ref} className="project-card">
     <ProjectImageCarousel title={project.title} images={project.images} href={links.primary}/>
