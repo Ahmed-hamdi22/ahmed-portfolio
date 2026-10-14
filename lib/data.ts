@@ -67,10 +67,19 @@ export const skills = {
 export const experience = [
   {
     role: "Full Stack Developer",
-    company: "SooqKasem — Freelance",
+    company: "Freelance",
+    period: "Jan 2025 – Present",
+    location: "Remote",
+    description:
+      "Developing full-stack applications for clients, including e-commerce platforms, project management systems, secure APIs, and admin dashboards.",
+    tags: ["React", "Next.js", "Node.js", "MongoDB"],
+  },
+  {
+    role: "Full Stack Developer",
+    company: "SooqKasem (Freelance Project)",
     period: "Jul – Aug 2026",
     location: "Remote",
-    description: `A full-stack Arabic grocery e-commerce platform built end-to-end with a focus on real-world business workflows and seamless UX:
+    description: `Built an end-to-end grocery e-commerce platform with cart synchronization, loyalty rewards, inventory management, and role-based administration.
 
 Dual-Mode Cart Architecture: Built an offline-first guest cart using Zustand, automatically syncing with MongoDB on user authentication.
 Customer Loyalty & Trust: Implemented verified-purchase reviews and an automated points & rewards engine with cancellation rollbacks.
@@ -89,10 +98,10 @@ Business Intelligence: Developed a role-based admin dashboard with real-time sal
   },
   {
     role: "Full Stack Developer",
-    company: "imam abdulrahman bin faisal university ",
+    company: "IAU Project (Freelance Engagement)",
     period: "Mar – Aug 2026",
     location: "Remote",
-    description: `A production-grade, multi-tenant SaaS platform built for Imam Abdulrahman Bin Faisal University (IAU) to unify departmental project tracking and governance:
+    description: `Developed a multi-tenant SaaS platform for departmental project tracking, collaboration, access control, and analytics.
 
 Multi-Tenant Architecture & RBAC: Enforced strict workspace tenant isolation with a two-tier role hierarchy (System Manager platform oversight vs. Workspace Owner/Admin/Member).
 Real-Time Collaboration Engine: Implemented bi-directional task synchronization and targeted notification streams via JWT-authenticated Socket.io channels.
@@ -114,7 +123,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
     period: "Nov 2024 – Jun 2025",
     location: "Cairo, Egypt",
     description:
-      "Developed responsive web applications using React.js, Next.js, and TypeScript. Implemented secure authentication with NextAuth and JWT, form validation with Zod and React Hook Form, and collaborated in Agile sprints with Git workflows.",
+      "Developed responsive applications using React, Next.js, and TypeScript, integrating authentication, API workflows, and form validation.",
     tags: [
       "React.js",
       "Next.js",
