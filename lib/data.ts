@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Ahmed Hamdi",
   title: "Full Stack, MERN Stack & Frontend Developer",
   subtitle:
-    "Building scalable web applications from UI to API with React, Next.js, TypeScript, Node.js, Express.js, and MongoDB.",
+    "Building modern, scalable web applications with React, Next.js, TypeScript, Node.js, and MongoDB. From responsive interfaces to secure APIs and complete full-stack solutions.",
   email: "ahmed255hamdi@gmail.com",
   phone: "+20 1066543802",
   location: "Cairo, Egypt",
@@ -179,6 +179,7 @@ export interface ProjectItem {
   summary: string;
   description: string;
   tags: string[];
+  highlightTags?: string[];
   github?: string;
   demo?: string;
   accent: string;
@@ -191,7 +192,7 @@ export const projects: ProjectItem[] = [
   {
     title: "SooqKasem —  E-Commerce Platform",
     summary:
-      "Arabic grocery storefront with guest-to-account cart sync, loyalty rewards, WhatsApp checkout, and an admin dashboard.",
+      "Full-stack grocery e-commerce platform featuring guest-to-account cart synchronization, loyalty rewards, WhatsApp ordering, inventory management, and a role-based admin dashboard.",
     description: `A full-stack Arabic grocery e-commerce platform built end-to-end with a focus on real-world business workflows and seamless UX:
 
 Dual-Mode Cart Architecture: Built an offline-first guest cart using Zustand, automatically syncing with MongoDB on user authentication.
@@ -209,6 +210,7 @@ Business Intelligence: Developed a role-based admin dashboard with real-time sal
       "Mongoose",
       "JWT",
     ],
+    highlightTags: ["React", "Node.js", "MongoDB", "Zustand"],
     demo: "https://sooqkasem.com/",
     accent: "#34D399",
     color: "green",
@@ -222,7 +224,7 @@ Business Intelligence: Developed a role-based admin dashboard with real-time sal
   {
     title: "Project Tracker & Team Governance Platform",
     summary:
-      "Multi-tenant project workspace with role-based access, live collaboration, Kanban, calendar, timelines, and analytics.",
+      "Multi-tenant SaaS project management platform featuring secure role-based access, real-time collaboration, Kanban boards, timelines, task management, and advanced project analytics.",
     description: `A production-grade, multi-tenant SaaS platform built for Imam Abdulrahman Bin Faisal University (IAU) to unify departmental project tracking and governance:
 
 Multi-Tenant Architecture & RBAC: Enforced strict workspace tenant isolation with a two-tier role hierarchy (System Manager platform oversight vs. Workspace Owner/Admin/Member).
@@ -240,6 +242,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
       "MongoDB",
       "Socket.io",
     ],
+    highlightTags: ["React", "Node.js", "MongoDB", "Socket.io"],
     demo: "https://projectly-mauve.vercel.app/login",
     accent: "#A78BFA",
     color: "purple",
@@ -253,9 +256,9 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   {
     title: "Sanda — Recruitment & Job Management Platform",
     summary:
-      "Recruitment marketplace connecting employers and applicants through job listings, application tracking, and live updates.",
+      "Full-stack recruitment platform connecting employers and workers, featuring job management, applications, role-based access, wallet workflows, real-time notifications, and QR-code attendance.",
     description:
-      "Full-stack workforce marketplace connecting employers and applicants with job postings, application tracking, real-time notifications via Socket.io, and secure authentication.",
+      "Full-stack recruitment platform connecting employers and workers, featuring job management, applications, role-based access, wallet workflows, real-time notifications, and QR-code attendance.",
     tags: [
       "React",
       "TypeScript",
@@ -267,6 +270,7 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
       "Socket.io",
       "REST APIs",
     ],
+    highlightTags: ["React", "Node.js", "MongoDB", "Socket.io"],
     github: "https://github.com/Ahmed-hamdi22/sanda-front",
     demo: "https://sanda-ten.vercel.app/",
     accent: "#38BDF8",
@@ -281,9 +285,9 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   {
     title: "Flower Shop E-Commerce & Admin Dashboard",
     summary:
-      "Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.",
+      "Developed a multilingual e-commerce storefront and admin dashboard using Next.js and TypeScript, integrating authentication, Stripe checkout, product management, and sales analytics.",
     description:
-      "Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.",
+      "Developed a multilingual e-commerce storefront and admin dashboard using Next.js and TypeScript, integrating authentication, Stripe checkout, product management, and sales analytics.",
     tags: [
       "Next.js 14",
       "TypeScript",

@@ -5,7 +5,7 @@ export const english = {
   downloadCV: "Download CV", menuOpen: "Open navigation", menuClose: "Close navigation",
   lightTheme: "Light theme", darkTheme: "Dark theme", switchArabic: "Switch to Arabic", switchEnglish: "Switch to English",
   skip: "Skip to content", home: "Ahmed Hamdi, back to top", viewProjects: "View Projects", contactMe: "Contact Me",
-  intro: "Building scalable web applications from UI to API with React, Next.js, TypeScript, Node.js, Express.js, and MongoDB.",
+  intro: "Building modern, scalable web applications with React, Next.js, TypeScript, Node.js, and MongoDB. From responsive interfaces to secure APIs and complete full-stack solutions.",
   scroll: "Scroll to explore", technicalSkills: "Technical Skills", technologies: "Technologies I work with",
   selectedProjects: "Selected Projects", built: "Things I've built", featured: "Featured + pairs", compact: "Compact rows",
   layout: "Project layout", live: "Live project", source: "GitHub", openProject: "Open project", showImage: "Show image",
@@ -24,7 +24,7 @@ export const arabic: Record<TranslationKey, string> = {
   downloadCV: "تحميل السيرة الذاتية", menuOpen: "فتح القائمة", menuClose: "إغلاق القائمة",
   lightTheme: "المظهر الفاتح", darkTheme: "المظهر الداكن", switchArabic: "التبديل إلى العربية", switchEnglish: "Switch to English",
   skip: "انتقل إلى المحتوى", home: "أحمد حمدي، العودة للأعلى", viewProjects: "شاهد المشاريع", contactMe: "تواصل معي",
-  intro: "أطوّر تطبيقات ويب قابلة للتوسع، من واجهة المستخدم إلى الـAPI، باستخدام React وNext.js وTypeScript وNode.js وExpress.js وMongoDB.",
+  intro: "أطوّر تطبيقات ويب حديثة وقابلة للتوسع باستخدام React وNext.js وTypeScript وNode.js وMongoDB، من بناء واجهات متجاوبة إلى تطوير APIs آمنة وحلول Full Stack متكاملة.",
   scroll: "اكتشف المزيد", technicalSkills: "المهارات التقنية", technologies: "التقنيات التي أعمل بها",
   selectedProjects: "مشاريع مختارة", built: "مشاريع طوّرتها", featured: "مشروع مميز + أزواج", compact: "صفوف مدمجة",
   layout: "طريقة عرض المشاريع", live: "عرض المشروع", source: "GitHub", openProject: "افتح المشروع", showImage: "عرض الصورة",
@@ -36,10 +36,10 @@ export const arabic: Record<TranslationKey, string> = {
 };
 
 export const arabicProjectSummaries = [
-  "متجر بقالة عربي مع مزامنة سلة الزائر مع الحساب، ونظام مكافآت، وطلب عبر واتساب، ولوحة إدارة.",
-  "منصة لإدارة المشاريع متعددة المساحات، مع صلاحيات المستخدمين، والتعاون المباشر، وKanban، والتقويم، والجداول الزمنية والتحليلات.",
-  "منصة توظيف تربط أصحاب العمل بالمتقدمين من خلال الوظائف، ومتابعة الطلبات، والتحديثات المباشرة.",
-  "تطوير الواجهة الأمامية لمتجر متعدد اللغات ولوحة إدارة، مع الدفع عبر Stripe وتحليلات المبيعات.",
+  "منصة تجارة إلكترونية متكاملة للبقالة، تشمل مزامنة سلة التسوق، ونظام مكافآت، والطلب عبر واتساب، وإدارة المخزون، ولوحة تحكم بصلاحيات متعددة.",
+  "منصة SaaS متعددة المساحات لإدارة المشاريع والفرق، تشمل صلاحيات متقدمة، وتعاونًا لحظيًا، ولوحات Kanban، وإدارة المهام، والجداول الزمنية، وتحليلات أداء المشاريع.",
+  "منصة توظيف متكاملة تربط أصحاب العمل بالباحثين عن فرص العمل، مع إدارة الوظائف والطلبات، وصلاحيات المستخدمين، والمحافظ، والإشعارات اللحظية، وتسجيل الحضور عبر QR Code.",
+  "طوّرت الواجهة الأمامية لمتجر إلكتروني متعدد اللغات ولوحة إدارة باستخدام Next.js وTypeScript، مع دمج تسجيل الدخول والدفع عبر Stripe وإدارة المنتجات وتحليلات المبيعات.",
   "تطبيق لياقة لاكتشاف خطط التمارين والوصفات الصحية وجلسات التدريب المنظمة.",
   "منصة اختبارات محددة الوقت، مع تسجيل الدخول، والنتائج الفورية، ودعم لغات متعددة.",
   "تجربة تسوّق تشمل تصفية المنتجات، والمفضلة، وتحديث السلة مباشرة، وتسجيل الدخول، والدفع عبر Stripe.",
