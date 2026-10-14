@@ -50,7 +50,16 @@ export const skills = {
   },
   "Tools & Workflow": {
     color: "#818CF8",
-    tags: ["Git", "GitHub", "Jira", "Scrum", "Agile", "CI/CD", "Docker", "Figma"],
+    tags: [
+      "Git",
+      "GitHub",
+      "Jira",
+      "Scrum",
+      "Agile",
+      "CI/CD",
+      "Docker",
+      "Figma",
+    ],
   },
   Languages: { color: "#38BDF8", tags: ["C++"] },
 };
@@ -137,7 +146,7 @@ export const certifications = [
     ],
   },
   {
-    title: "Full Stack Track Trainee",
+    title: "Full Stack Trainee",
     provider: "Digilians",
     period: "Jan – Jun 2026",
     location: "Cairo, Egypt",
@@ -181,7 +190,8 @@ export interface ProjectItem {
 export const projects: ProjectItem[] = [
   {
     title: "SooqKasem —  E-Commerce Platform",
-    summary: "Arabic grocery storefront with guest-to-account cart sync, loyalty rewards, WhatsApp checkout, and an admin dashboard.",
+    summary:
+      "Arabic grocery storefront with guest-to-account cart sync, loyalty rewards, WhatsApp checkout, and an admin dashboard.",
     description: `A full-stack Arabic grocery e-commerce platform built end-to-end with a focus on real-world business workflows and seamless UX:
 
 Dual-Mode Cart Architecture: Built an offline-first guest cart using Zustand, automatically syncing with MongoDB on user authentication.
@@ -211,7 +221,8 @@ Business Intelligence: Developed a role-based admin dashboard with real-time sal
   },
   {
     title: "Project Tracker & Team Governance Platform",
-    summary: "Multi-tenant project workspace with role-based access, live collaboration, Kanban, calendar, timelines, and analytics.",
+    summary:
+      "Multi-tenant project workspace with role-based access, live collaboration, Kanban, calendar, timelines, and analytics.",
     description: `A production-grade, multi-tenant SaaS platform built for Imam Abdulrahman Bin Faisal University (IAU) to unify departmental project tracking and governance:
 
 Multi-Tenant Architecture & RBAC: Enforced strict workspace tenant isolation with a two-tier role hierarchy (System Manager platform oversight vs. Workspace Owner/Admin/Member).
@@ -241,7 +252,8 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Sanda — Recruitment & Job Management Platform",
-    summary: "Recruitment marketplace connecting employers and applicants through job listings, application tracking, and live updates.",
+    summary:
+      "Recruitment marketplace connecting employers and applicants through job listings, application tracking, and live updates.",
     description:
       "Full-stack workforce marketplace connecting employers and applicants with job postings, application tracking, real-time notifications via Socket.io, and secure authentication.",
     tags: [
@@ -268,7 +280,8 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Flower Shop E-Commerce & Admin Dashboard",
-    summary: "Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.",
+    summary:
+      "Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.",
     description:
       "Frontend development of a multilingual storefront and admin dashboard with Stripe checkout and sales analytics.",
     tags: [
@@ -293,7 +306,8 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Super Fitness Web App",
-    summary: "Fitness experience for discovering workout plans, healthy recipes, and structured training sessions.",
+    summary:
+      "Fitness experience for discovering workout plans, healthy recipes, and structured training sessions.",
     description:
       "Multilingual fitness platform allowing users to explore structured workout routines by difficulty level, browse healthy recipes, and track training sessions.",
     tags: [
@@ -317,7 +331,8 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "Online Exam Platform",
-    summary: "Timed online assessments with authentication, immediate results, and multilingual support.",
+    summary:
+      "Timed online assessments with authentication, immediate results, and multilingual support.",
     description:
       "Interactive exam application with timer-based assessment sessions, real-time result calculations, NextAuth authentication, and multi-language support.",
     tags: [
@@ -341,7 +356,8 @@ Performance Analytics & Resilient Auth: Designed timezone-aware MongoDB aggregat
   },
   {
     title: "FreshCart E-Commerce",
-    summary: "Shopping experience with product filtering, wishlist, live cart updates, authentication, and Stripe checkout.",
+    summary:
+      "Shopping experience with product filtering, wishlist, live cart updates, authentication, and Stripe checkout.",
     description:
       "Modern shopping platform featuring user authentication, real-time cart with quantity control, Stripe checkout, wishlist, and product filtering.",
     tags: [
