@@ -9,7 +9,7 @@ export const siteConfig = {
   github: "https://github.com/Ahmed-hamdi22",
   linkedin: "https://linkedin.com/in/ahmed-hamdi-86ab2b23a",
   about:
-    "I'm Ahmed Hamdi, a Full Stack, MERN Stack, and Frontend Developer focused on React, Next.js, TypeScript, Node.js, Express.js, and MongoDB. I build responsive interfaces, integrate APIs, implement authentication flows, and develop maintainable full-stack applications.",
+    "I'm Ahmed Hamdi, a Full Stack Developer specializing in the MERN stack, React, Next.js, and TypeScript.\n\nI've worked on freelance and team-based projects, building e-commerce platforms, SaaS applications, admin dashboards, and REST APIs.\n\nI focus on writing maintainable code, solving real-world problems, and delivering reliable, user-friendly web applications.",
 };
 
 export const skills = {

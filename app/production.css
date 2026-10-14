@@ -29,6 +29,8 @@ html[lang="ar"] body{font-family:Tahoma,Arial,sans-serif}html[lang="ar"] h2:not(
 html[lang="ar"] .section-heading h2,html[lang="ar"] .contact h2{font-family:Tahoma,Arial,sans-serif;font-size:clamp(30px,3.5vw,50px);line-height:1.35}
 html[lang="ar"] .hero h1,html[lang="ar"] .about h2[dir="ltr"]{font-family:Georgia,serif;letter-spacing:-.075em}
 html[lang="ar"] .subtitle{font-size:16px;line-height:1.9}html[lang="ar"] .about-narrative>div>p{font-family:Tahoma,Arial,sans-serif;font-size:clamp(19px,2vw,26px);line-height:1.85}
+html[lang="ar"] .about-narrative .about-copy p{font-family:Tahoma,Arial,sans-serif;font-size:clamp(16px,1.35vw,18px);line-height:1.9}
+html[lang="ar"] .about-narrative .about-copy p:first-child{font-size:clamp(19px,1.8vw,24px);line-height:1.7}
 html[lang="ar"] .project-info p,html[lang="ar"] .cert-description,html[lang="ar"] .experience-item p{font-size:13px;line-height:1.8}
 html[lang="ar"] .experience-item time{text-align:end}html[lang="ar"] .project-info h3{text-align:start}
 html[dir="rtl"] .hero-socials{direction:ltr}html[dir="rtl"] .hero-copy .hero-actions{direction:rtl}html[dir="rtl"] .footer-socials{direction:ltr}

@@ -61,7 +61,7 @@ export function About() {
           <span className="eyebrow">{t("aboutMe")}</span>
           <h2 id="about-heading" dir="ltr">Ahmed <em>Hamdi.</em></h2>
         </div>
-        <div><p>{t("aboutText")}</p></div>
+        <div className="about-copy">{t("aboutText").split("\n\n").map(paragraph => <p key={paragraph}>{paragraph}</p>)}</div>
         <div className="about-links"><SocialLinks/></div>
       </div>
       <div className="about-profile">

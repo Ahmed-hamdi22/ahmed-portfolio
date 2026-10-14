@@ -77,6 +77,9 @@ img{max-width:100%}
 .about-narrative .section-heading{margin-bottom:30px}
 .about-narrative h2 em{color:var(--coral);font-weight:400}
 .about-narrative>div>p{font:400 clamp(21px,2.25vw,32px)/1.5 Georgia,serif;letter-spacing:-.025em;max-width:770px;margin:0}
+.about-narrative .about-copy p{font:400 clamp(16px,1.25vw,18px)/1.7 Arial,Helvetica,sans-serif;letter-spacing:0;max-width:690px;margin:0}
+.about-narrative .about-copy p:first-child{font:400 clamp(20px,2vw,27px)/1.5 Georgia,serif;letter-spacing:-.025em}
+.about-narrative .about-copy p+p{margin-top:16px}
 .about-links{display:flex;gap:25px;margin-top:30px}
 .about-links a{display:inline-flex;gap:9px;align-items:center;font-size:12px;text-decoration:none;padding-block:10px;border-bottom:1px solid var(--rule)}
 .about-links svg,.whatsapp-link svg,.contact-links svg,.footer-socials svg{width:21px;height:21px;flex-shrink:0}
